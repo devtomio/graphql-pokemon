@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server-koa';
+import gql from 'graphql-tag';
 
 export const getPokemonWithFullDataAndEvolutions = gql`
   fragment GenerationalPokemonLearnsetFragment on GenerationalPokemonLearnset {
@@ -215,9 +215,15 @@ export const getPokemonWithFullDataAndEvolutions = gql`
     catchRate {
       ...CatchRateFragment
     }
+    classification
+    respelling
+    ipa
     color
     cosmeticFormes
+    cry
     weight
+    legendary
+    mythical
   }
 
   fragment FullDataFragment on Pokemon {
@@ -241,6 +247,7 @@ export const getPokemonWithFullDataAndEvolutions = gql`
         ...FullDataFragment
       }
     }
+
     preevolutions {
       ...FullDataFragment
       evolutions {

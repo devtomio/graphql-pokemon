@@ -19,17 +19,10 @@ export default defineConfig({
       { find: '#test-utils', replacement: resolve('tests/testUtils') }
     ]
   },
-  esbuild: { format: 'esm' },
-  plugins: [
-    {
-      name: 'replace-json-modules',
-      transform: (code) => code.replaceAll('assert { type: "json" }', '')
-    }
-  ],
   test: {
     globals: true,
     coverage: {
-      enabled: true,
+      provider: 'v8',
       reporter: ['text', 'lcov', 'clover']
     }
   }

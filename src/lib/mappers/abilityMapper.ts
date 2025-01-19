@@ -1,7 +1,7 @@
 import { pokedex } from '#assets/pokedex';
-import type PokemonTypes from '#assets/pokemon-source';
+import type { PokemonTypes } from '#assets/pokemon-source';
 import { mapPokemonDataToPokemonGraphQL, PokemonReferencedCallIdentifier } from '#mappers/pokemonMapper';
-import type { Ability, Pokemon } from '#types';
+import type { Ability, Pokemon } from '#types/graphql-mapped-types';
 import { addPropertyToObjectFieldBased } from '#utils/addPropertyToObject';
 import type { GraphQLSet } from '#utils/GraphQLSet';
 import { isNullishOrEmpty, toTitleCase } from '@sapphire/utilities';
@@ -17,6 +17,7 @@ export function mapAbilityDataToAbilityGraphQL({
   addPropertyToObjectFieldBased({ objectTarget: abilityObject, propertyKey: 'name', propertyValue: data.name, requestedFields });
   addPropertyToObjectFieldBased({ objectTarget: abilityObject, propertyKey: 'desc', propertyValue: data.desc, requestedFields });
   addPropertyToObjectFieldBased({ objectTarget: abilityObject, propertyKey: 'shortDesc', propertyValue: data.shortDesc, requestedFields });
+  addPropertyToObjectFieldBased({ objectTarget: abilityObject, propertyKey: 'isNonstandard', propertyValue: data.isNonstandard, requestedFields });
   addPropertyToObjectFieldBased({
     objectTarget: abilityObject,
     propertyKey: 'isFieldAbility',
