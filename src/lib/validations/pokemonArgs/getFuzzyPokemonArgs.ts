@@ -1,6 +1,6 @@
-import type { NonNullish } from '#utils/utilTypes';
-import { baseFuzzySchema, type BaseFuzzyArgs } from '#validations/fuzzyArgs/base.ts';
-import { BasePokemonArgs, basePokemonArgsSchema } from '#validations/pokemonArgs/base';
+import type { NonNullish } from '#types/utility-types';
+import { baseFuzzySchema, type BaseFuzzyArgs } from '#validations/fuzzyArgs/base';
+import { basePokemonArgsSchema, type BasePokemonArgs } from '#validations/pokemonArgs/base';
 import { s, type SchemaOf } from '@sapphire/shapeshift';
 
 export interface GetFuzzyPokemonArgs extends BaseFuzzyArgs, BasePokemonArgs {
@@ -13,7 +13,7 @@ export interface GetFuzzyPokemonArgs extends BaseFuzzyArgs, BasePokemonArgs {
 const getFuzzyPokemonSchema: SchemaOf<GetFuzzyPokemonArgs> = baseFuzzySchema //
   .extend(basePokemonArgsSchema)
   .extend({
-    pokemon: s.string
+    pokemon: s.string({ message: 'The Pokémon has to be a string' })
   });
 
 export function validateGetFuzzyPokemonArgs(args: GetFuzzyPokemonArgs): NonNullish<GetFuzzyPokemonArgs> {
