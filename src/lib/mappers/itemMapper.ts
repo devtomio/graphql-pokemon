@@ -1,8 +1,8 @@
-import type PokemonTypes from '#assets/pokemon-source';
-import type { Item } from '#types';
-import { addPropertyToObjectFieldBased } from '#utils/addPropertyToObject';
+import type { PokemonTypes } from '#assets/pokemon-source';
+import type { Item } from '#types/graphql-mapped-types';
 import type { GraphQLSet } from '#utils/GraphQLSet';
-import { toLowerHyphenCase, toLowerSingleWordCase } from '#utils/util';
+import { addPropertyToObjectFieldBased } from '#utils/addPropertyToObject';
+import { toLowerHyphenCase, toLowerSingleWordCase } from '#utils/utils';
 import { toTitleCase } from '@sapphire/utilities';
 
 export function mapItemDataToItemGraphQL({ data, requestedFields }: MapItemDataToItemGraphQLParameters): Item {
@@ -30,13 +30,13 @@ export function mapItemDataToItemGraphQL({ data, requestedFields }: MapItemDataT
   addPropertyToObjectFieldBased({
     objectTarget: itemObject,
     propertyKey: 'serebiiPage',
-    propertyValue: `https://www.serebii.net/itemdex/${toLowerSingleWordCase(data.name)}.shtml`,
+    propertyValue: `https://www.serebii.net/itemdex/${toLowerSingleWordCase(data.name).replaceAll('é', 'e')}.shtml`,
     requestedFields
   });
   addPropertyToObjectFieldBased({
     objectTarget: itemObject,
     propertyKey: 'smogonPage',
-    propertyValue: `https://www.smogon.com/dex/ss/items/${toLowerHyphenCase(data.name)}`,
+    propertyValue: `https://www.smogon.com/dex/sv/items/${toLowerHyphenCase(data.name)}`,
     requestedFields
   });
 

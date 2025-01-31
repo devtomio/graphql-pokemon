@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server-koa';
+import gql from 'graphql-tag';
 
 export const getPokemonSpecies = gql`
   query ($pokemon: PokemonEnum!) {
@@ -99,8 +99,12 @@ export const getPokemonWithFullData = gql`
         base
         percentageWithOrdinaryPokeballAtFullHealth
       }
+      classification
+      respelling
+      ipa
       color
       cosmeticFormes
+      cry
     }
   }
 `;

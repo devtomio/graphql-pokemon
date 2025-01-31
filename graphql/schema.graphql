@@ -12,6 +12,9 @@ type Ability {
   "Whether this ability has effects outside of battle, and if so what the effect is"
   isFieldAbility: String
 
+  "Whether an ability is non-standard, and if it is why"
+  isNonstandard: String
+
   "The name for an ability"
   name: String!
 
@@ -61,11 +64,23 @@ type Pokemon {
   "The catch rate data for a Pokémon"
   catchRate: CatchRate
 
+  "The classification of a Pokémon as listed in the Pokedex"
+  classification: String
+
+  "The respelling of the name of the Pokémon"
+  respelling: String
+
+  "The International Phonetic Alphabet (IPA) representation of the name of the Pokémon"
+  ipa: String
+
   "The colour of a Pokémon as listed in the Pokedex"
   color: String!
 
   "Any other *cosmetic* forms for a Pokémon, distinguished from other formes as cosmetic formes only change the look of the Pokémon, while other formes might also change an ability, move set or other data."
   cosmeticFormes: [String!]
+
+  "An URL to an mp3 file of the Pokémon's cry."
+  cry: String
 
   "The egg groups a Pokémon is in"
   eggGroups: [String!]
@@ -144,6 +159,12 @@ type Pokemon {
 
   "The weight of a Pokémon in kilograms"
   weight: Float!
+
+  "Whether this Pokémon is a mythical Pokémon. The list is based on what is provided by Bulbapedia."
+  mythical: Boolean!
+
+  "Whether this Pokémon is a legendary Pokémon. The list is based on what is provided by Bulbapedia."
+  legendary: Boolean!
 }
 
 "The type of a Pokémon and that types matchup"
@@ -474,4 +495,25 @@ type TypeEffectiveness {
 
   "The types with 0.5x effectiveness"
   resistedTypes: [String!]!
+}
+
+"A single Nature entry"
+type Nature {
+  "The key of the nature as stored in the API"
+  key: NaturesEnum!
+
+  "The name of a nature"
+  name: String!
+
+  "The stat the nature increases by 10%"
+  increasedStat: String
+
+  "The stat the nature decreases by 10%"
+  decreasedStat: String
+
+  "The flavor of food the nature prefers"
+  preferredFlavor: String
+
+  "The flavor of food the nature dislikes"
+  dislikedFlavor: String
 }

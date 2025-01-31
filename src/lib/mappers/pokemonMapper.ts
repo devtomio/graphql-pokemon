@@ -1,8 +1,6 @@
 import { abilities } from '#assets/abilities';
 import { pokedex } from '#assets/pokedex';
-import type PokemonTypes from '#assets/pokemon-source';
-import flavors from '#jsonAssets/flavorText.json' assert { type: 'json' };
-import tiers from '#jsonAssets/formats.json' assert { type: 'json' };
+import type { PokemonTypes } from '#assets/pokemon-source';
 import { AbilityReferencedCallIdentifier, mapAbilityDataToAbilityGraphQL } from '#mappers/abilityMapper';
 import { getLearnsetDataset, mapPokemonToPokemonLearnsetGraphQL } from '#mappers/learnsetMapper';
 import { mapTypesToTypeMatchupGraphQL } from '#mappers/typeMatchupMapper';
@@ -19,13 +17,16 @@ import type {
   PokemonType,
   Stats,
   TypeMatchup
-} from '#types';
-import { addPropertyToObjectConditional, addPropertyToObjectFieldBased } from '#utils/addPropertyToObject';
+} from '#types/graphql-mapped-types';
+import type { Generation, UnwrapArray } from '#types/utility-types';
 import type { GraphQLSet } from '#utils/GraphQLSet';
+import { addPropertyToObjectConditional, addPropertyToObjectFieldBased } from '#utils/addPropertyToObject';
+import { flavorsModule as flavors } from '#utils/flavorsModule';
+import { formatsModule as formats } from '#utils/formatsModule';
+import { speciesThatAreNotInGeneration8Nor9 } from '#utils/pastGenerationPokemon';
 import type { TypesEnum } from '#utils/pokemonTypes';
-import { parseSpeciesForSprite } from '#utils/spriteParser';
-import { toLowerHyphenCase, toLowerSingleWordCase } from '#utils/util';
-import type { Generation, UnwrapArray } from '#utils/utilTypes';
+import { parseSpeciesForSprite } from '#utils/sprite-parser';
+import { toLowerHyphenCase, toLowerSingleWordCase } from '#utils/utils';
 import { cast, toTitleCase } from '@sapphire/utilities';
 
 const bulbapediaBaseUrlPrefix = 'https://bulbapedia.bulbagarden.net/wiki/';
@@ -301,7 +302,7 @@ export function mapPokemonDataToPokemonGraphQL({
     propertyValue: () =>
       resolvedNestedLearnset(
         parsingPokemon || toLowerSingleWordCase(data.species),
-        8,
+        9,
         generationalLearnsetsRequestedFields.filterStartsWith<keyof PokemonLearnset>(`${resolvedRecursingAs}learnsets.generation8.`, true)
       ),
     condition: generationalLearnsetsRequestedFields.hasStartsWith(`${resolvedRecursingAs}learnsets.generation8.`)
@@ -409,10 +410,38 @@ export function mapPokemonDataToPokemonGraphQL({
   });
   addPropertyToObjectFieldBased({
     objectTarget: pokemonData,
+    propertyKey: 'classification',
+    propertyValue: data.classification,
+    requestedFields,
+    fieldAccessor: `${resolvedRecursingAs}classification`
+  });
+  addPropertyToObjectFieldBased({
+    objectTarget: pokemonData,
+    propertyKey: 'respelling',
+    propertyValue: data.respelling,
+    requestedFields,
+    fieldAccessor: `${resolvedRecursingAs}respelling`
+  });
+  addPropertyToObjectFieldBased({
+    objectTarget: pokemonData,
+    propertyKey: 'ipa',
+    propertyValue: data.ipa,
+    requestedFields,
+    fieldAccessor: `${resolvedRecursingAs}ipa`
+  });
+  addPropertyToObjectFieldBased({
+    objectTarget: pokemonData,
     propertyKey: 'color',
     propertyValue: data.color,
     requestedFields,
     fieldAccessor: `${resolvedRecursingAs}color`
+  });
+  addPropertyToObjectFieldBased({
+    objectTarget: pokemonData,
+    propertyKey: 'cry',
+    propertyValue: data.cry,
+    requestedFields,
+    fieldAccessor: `${resolvedRecursingAs}cry`
   });
   addPropertyToObjectFieldBased({
     objectTarget: pokemonData,
@@ -429,7 +458,7 @@ export function mapPokemonDataToPokemonGraphQL({
     fieldAccessor: `${resolvedRecursingAs}evolutionLevel`
   });
 
-  const smogonTier = tiers[toLowerSingleWordCase(data.species)] || 'Undiscovered';
+  const smogonTier = formats[toLowerSingleWordCase(data.species)] || 'Undiscovered';
   addPropertyToObjectFieldBased({
     objectTarget: pokemonData,
     propertyKey: 'smogonTier',
@@ -540,7 +569,7 @@ export function mapPokemonDataToPokemonGraphQL({
   addPropertyToObjectFieldBased({
     objectTarget: pokemonData,
     propertyKey: 'bulbapediaPage',
-    propertyValue: data.num >= 1 ? parseSpeciesForBulbapedia(data) : '',
+    propertyValue: data.num >= 0 ? parseSpeciesForBulbapedia(data) : '',
     requestedFields,
     fieldAccessor: `${resolvedRecursingAs}bulbapediaPage`
   });
@@ -556,6 +585,7 @@ export function mapPokemonDataToPokemonGraphQL({
     propertyKey: 'sprite',
     propertyValue: parseSpeciesForSprite({
       pokemonName: data.species,
+      pokemonNumber: data.num,
       baseSpecies: data.baseSpecies,
       specialSprite: data.specialSprite,
       specialShinySprite: data.specialShinySprite,
@@ -570,6 +600,7 @@ export function mapPokemonDataToPokemonGraphQL({
     propertyKey: 'shinySprite',
     propertyValue: parseSpeciesForSprite({
       pokemonName: data.species,
+      pokemonNumber: data.num,
       baseSpecies: data.baseSpecies,
       specialSprite: data.specialSprite,
       specialShinySprite: data.specialShinySprite,
@@ -585,6 +616,7 @@ export function mapPokemonDataToPokemonGraphQL({
     propertyKey: 'backSprite',
     propertyValue: parseSpeciesForSprite({
       pokemonName: data.species,
+      pokemonNumber: data.num,
       baseSpecies: data.baseSpecies,
       specialSprite: data.specialSprite,
       specialShinySprite: data.specialShinySprite,
@@ -600,6 +632,7 @@ export function mapPokemonDataToPokemonGraphQL({
     propertyKey: 'shinyBackSprite',
     propertyValue: parseSpeciesForSprite({
       pokemonName: data.species,
+      pokemonNumber: data.num,
       baseSpecies: data.baseSpecies,
       specialSprite: data.specialSprite,
       specialShinySprite: data.specialShinySprite,
@@ -618,6 +651,22 @@ export function mapPokemonDataToPokemonGraphQL({
     propertyValue: [],
     requestedFields,
     fieldAccessor: `${resolvedRecursingAs}flavorTexts`
+  });
+
+  addPropertyToObjectFieldBased({
+    objectTarget: pokemonData,
+    propertyKey: 'legendary',
+    propertyValue: data.legendary ?? false,
+    requestedFields,
+    fieldAccessor: `${resolvedRecursingAs}legendary`
+  });
+
+  addPropertyToObjectFieldBased({
+    objectTarget: pokemonData,
+    propertyKey: 'mythical',
+    propertyValue: data.mythical ?? false,
+    requestedFields,
+    fieldAccessor: `${resolvedRecursingAs}mythical`
   });
 
   if ((requestedFields as GraphQLSet<string>).has(`${resolvedRecursingAs}flavorTexts`) && data.num >= 0) {
@@ -769,46 +818,70 @@ function parseSpeciesForBulbapedia(pokemonData: PokemonTypes.DexEntry) {
  * Parses data from a Pokémon into a valid Serebii URL
  * @param pokemonName The name of the Pokémon to parse, required for new Serebii pages
  * @param pokemonNumber The number of the Pokémon to parse, required for old Serebii pages
- * @param pokemonTier The smogon tier of the Pokémon, required to check if the Pokémon is available in Generation 8
+ * @param pokemonTier The smogon tier of the Pokémon, required to check if the Pokémon is available in Generation 9
  */
 function parseSpeciesForSerebiiPage(pokemonName: string, pokemonNumber: number, pokemonTier: string) {
-  // If the Pokémon has a number of 0 or lower (0 is Missingno, negatives are Smogon CAP) then it doesn't have a Serebii page
+  // If the Pokémon has a number of 0 or lower (0 is Missingno, negatives are Smogon CAP and PokéStar) then it doesn't have a Serebii page
   if (pokemonNumber <= 0) return '';
 
-  if (pokemonTier.toLowerCase() === 'past') {
-    // If the Pokémon is not in Generation 8 then build a Generation 7 based URL
+  const parsedPokemonName = toLowerHyphenCase(pokemonName.replace(/:/g, ''));
+
+  // If the Pokémon is not in Generation 8 or 9 then build a Generation 7 based URL
+  if (speciesThatAreNotInGeneration8Nor9.includes(parsedPokemonName)) {
     return `${serebiiBaseUrl}-sm/${pokemonNumber < 100 ? pokemonNumber.toString().padStart(3, '0') : pokemonNumber}.shtml`;
   }
 
-  // If the Pokémon is available in Generation 8 then build a Generation 8 based URL
-  return `${serebiiBaseUrl}-swsh/${pokemonName.replace(/ /g, '').toLowerCase()}`;
+  // If the Pokémon is `'past'` in Generation 9, but was not included in speciesThatAreNotInGeneration8Nor9
+  // or the Pokémon is within the numbers range for generation 8,
+  // then build a Generation 8 based URL
+  if (pokemonTier.toLowerCase() === 'past' || (pokemonNumber >= 810 && pokemonNumber <= 905)) {
+    return `${serebiiBaseUrl}-swsh/${pokemonName.replace(/ /g, '').toLowerCase()}`;
+  }
+
+  // If the Pokémon is available in Generation 9 then build a Generation 9 based URL
+  return `${serebiiBaseUrl}-sv/${pokemonName.replace(/ /g, '').toLowerCase()}`;
 }
 
-function parseDataForEvolutionRecursion(basePokemonData: PokemonTypes.DexEntry, evoChainData: PokemonTypes.DexEntry) {
-  if (basePokemonData.forme && evoChainData.forme && basePokemonData.forme === evoChainData.forme) {
+function parseDataForEvolutionRecursion(basePokemonData: PokemonTypes.DexEntry, _: PokemonTypes.DexEntry) {
+  if (basePokemonData.forme) {
     return toLowerSingleWordCase(basePokemonData.species);
   }
 
-  return basePokemonData.baseSpecies?.toLowerCase() || basePokemonData.species;
+  return toLowerSingleWordCase(basePokemonData.baseSpecies || basePokemonData.species);
 }
 
 /**
  * Parses data from a Pokémon into a valid Smogon Dex URL
  * @param pokemonName The name of the Pokémon to parse
  * @param pokemonNumber The number of the Pokémon to parse
- * @param pokemonTier The smogon tier of the Pokémon, required to check if the Pokémon is available in Generation 8
+ * @param pokemonTier The smogon tier of the Pokémon, required to check if the Pokémon is available in Generation 9
  */
 function parseSpeciesForSmogonPage(pokemonName: string, pokemonNumber: number, pokemonTier: string) {
-  // If the Pokémon has a number of 0 or lower (0 is Missingno, negatives are Smogon CAP) then it doesn't have a Serebii page
-  if (pokemonNumber <= 0) return '';
+  // If the Pokémon is Missingno, then it doesn't have a Smogon Dex page
+  if (pokemonNumber === 0) return '';
 
-  if (pokemonTier.toLowerCase() === 'past') {
-    // If the Pokémon is not in Generation 8 then build a Generation 7 based URL
-    return `${smogonBaseUrl}/sm/pokemon/${toLowerHyphenCase(pokemonName)}`;
+  const parsedPokemonName = toLowerHyphenCase(pokemonName.replace(/:/g, ''));
+
+  // If the Pokémon has a number of lower than 0 then it is CAP so we can always send the latest generation URL
+  if (pokemonNumber < 0) {
+    return `${smogonBaseUrl}/sv/pokemon/${parsedPokemonName}`;
   }
 
-  // If the Pokémon is available in Generation 8 then build a Generation 8 based URL
-  return `${smogonBaseUrl}/ss/pokemon/${toLowerHyphenCase(pokemonName.replace(/:/g, ''))}`;
+  // If the Pokémon is not in Generation 8 or 9 then build a Generation 7 based URL
+  if (speciesThatAreNotInGeneration8Nor9.includes(parsedPokemonName)) {
+    return `${smogonBaseUrl}/sm/pokemon/${parsedPokemonName}`;
+  }
+
+  // IF the pokemon is not ursaluna-bloodmoon
+  // AND the Pokémon is `'past'` in Generation 9, but was not included in `speciesThatAreNotInGeneration8Nor9`
+  // OR the Pokémon is within the numbers range for generation 8,
+  // then build a Generation 8 based URL
+  if (pokemonName !== 'ursaluna-bloodmoon' && (pokemonTier.toLowerCase() === 'past' || (pokemonNumber >= 810 && pokemonNumber <= 905))) {
+    return `${smogonBaseUrl}/ss/pokemon/${parsedPokemonName}`;
+  }
+
+  // If the Pokémon is available in Generation 9 then build a Generation 9 based URL
+  return `${smogonBaseUrl}/sv/pokemon/${parsedPokemonName}`;
 }
 
 export const enum PokemonReferencedCallIdentifier {
