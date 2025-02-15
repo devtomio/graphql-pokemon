@@ -241,8 +241,17 @@ describe('getAllPokemon', () => {
         key: 'venomiconepilogue',
         species: 'venomicon-epilogue'
       },
-      { key: 'saharaja', species: 'Saharaja' },
+      { key: 'saharascal', species: 'saharascal' },
+      { key: 'saharaja', species: 'saharaja' },
+      { key: 'ababo', species: 'ababo' },
+      {
+        key: 'scattervein',
+        species: 'scattervein'
+      },
+      { key: 'hemogoblin', species: 'hemogoblin' },
+      { key: 'cresceidon', species: 'cresceidon' },
       { key: 'missingno', species: 'missingno.' },
+      { key: 'm00', species: "'m (00)" },
       { key: 'bulbasaur', species: 'bulbasaur' },
       { key: 'ivysaur', species: 'ivysaur' },
       { key: 'venusaur', species: 'venusaur' },
@@ -636,6 +645,18 @@ describe('getAllPokemon', () => {
         species: 'pinsir-mega'
       },
       { key: 'tauros', species: 'tauros' },
+      {
+        key: 'taurospaldeacombat',
+        species: 'tauros-paldea-combat'
+      },
+      {
+        key: 'taurospaldeablaze',
+        species: 'tauros-paldea-blaze'
+      },
+      {
+        key: 'taurospaldeaaqua',
+        species: 'tauros-paldea-aqua'
+      },
       { key: 'magikarp', species: 'magikarp' },
       { key: 'gyarados', species: 'gyarados' },
       {
@@ -755,6 +776,10 @@ describe('getAllPokemon', () => {
       { key: 'sunflora', species: 'sunflora' },
       { key: 'yanma', species: 'yanma' },
       { key: 'wooper', species: 'wooper' },
+      {
+        key: 'wooperpaldea',
+        species: 'wooper-paldea'
+      },
       { key: 'quagsire', species: 'quagsire' },
       { key: 'espeon', species: 'espeon' },
       { key: 'umbreon', species: 'umbreon' },
@@ -2249,12 +2274,16 @@ describe('getAllPokemon', () => {
       { key: 'kleavor', species: 'kleavor' },
       { key: 'ursaluna', species: 'ursaluna' },
       {
+        key: 'ursalunabloodmoon',
+        species: 'ursaluna-bloodmoon'
+      },
+      {
         key: 'basculegion',
         species: 'basculegion'
       },
       {
         key: 'basculegionf',
-        species: 'basculegion'
+        species: 'basculegion-f'
       },
       { key: 'sneasler', species: 'sneasler' },
       { key: 'overqwil', species: 'overqwil' },
@@ -2262,6 +2291,274 @@ describe('getAllPokemon', () => {
       {
         key: 'enamorustherian',
         species: 'enamorus-therian'
+      },
+      { key: 'sprigatito', species: 'sprigatito' },
+      { key: 'floragato', species: 'floragato' },
+      {
+        key: 'meowscarada',
+        species: 'meowscarada'
+      },
+      { key: 'fuecoco', species: 'fuecoco' },
+      { key: 'crocalor', species: 'crocalor' },
+      { key: 'skeledirge', species: 'skeledirge' },
+      { key: 'quaxly', species: 'quaxly' },
+      { key: 'quaxwell', species: 'quaxwell' },
+      { key: 'quaquaval', species: 'quaquaval' },
+      { key: 'lechonk', species: 'lechonk' },
+      { key: 'oinkologne', species: 'oinkologne' },
+      {
+        key: 'oinkolognef',
+        species: 'oinkolognef'
+      },
+      { key: 'tarountula', species: 'tarountula' },
+      { key: 'spidops', species: 'spidops' },
+      { key: 'nymble', species: 'nymble' },
+      { key: 'lokix', species: 'lokix' },
+      { key: 'pawmi', species: 'pawmi' },
+      { key: 'pawmo', species: 'pawmo' },
+      { key: 'pawmot', species: 'pawmot' },
+      { key: 'tandemaus', species: 'tandemaus' },
+      { key: 'maushold', species: 'maushold' },
+      {
+        key: 'mausholdfour',
+        species: 'mausholdfour'
+      },
+      { key: 'fidough', species: 'fidough' },
+      { key: 'dachsbun', species: 'dachsbun' },
+      { key: 'smoliv', species: 'smoliv' },
+      { key: 'dolliv', species: 'dolliv' },
+      { key: 'arboliva', species: 'arboliva' },
+      {
+        key: 'squawkabilly',
+        species: 'squawkabilly'
+      },
+      {
+        key: 'squawkabillyblue',
+        species: 'squawkabillyblue'
+      },
+      {
+        key: 'squawkabillyyellow',
+        species: 'squawkabillyyellow'
+      },
+      {
+        key: 'squawkabillywhite',
+        species: 'squawkabillywhite'
+      },
+      { key: 'nacli', species: 'nacli' },
+      { key: 'naclstack', species: 'naclstack' },
+      { key: 'garganacl', species: 'garganacl' },
+      { key: 'charcadet', species: 'charcadet' },
+      { key: 'armarouge', species: 'armarouge' },
+      { key: 'ceruledge', species: 'ceruledge' },
+      { key: 'tadbulb', species: 'tadbulb' },
+      { key: 'bellibolt', species: 'bellibolt' },
+      { key: 'wattrel', species: 'wattrel' },
+      {
+        key: 'kilowattrel',
+        species: 'kilowattrel'
+      },
+      { key: 'maschiff', species: 'maschiff' },
+      { key: 'mabosstiff', species: 'mabosstiff' },
+      { key: 'shroodle', species: 'shroodle' },
+      { key: 'grafaiai', species: 'grafaiai' },
+      { key: 'bramblin', species: 'bramblin' },
+      {
+        key: 'brambleghast',
+        species: 'brambleghast'
+      },
+      { key: 'toedscool', species: 'toedscool' },
+      { key: 'toedscruel', species: 'toedscruel' },
+      { key: 'klawf', species: 'klawf' },
+      { key: 'capsakid', species: 'capsakid' },
+      { key: 'scovillain', species: 'scovillain' },
+      { key: 'rellor', species: 'rellor' },
+      { key: 'rabsca', species: 'rabsca' },
+      { key: 'flittle', species: 'flittle' },
+      { key: 'espathra', species: 'espathra' },
+      { key: 'tinkatink', species: 'tinkatink' },
+      { key: 'tinkatuff', species: 'tinkatuff' },
+      { key: 'tinkaton', species: 'tinkaton' },
+      { key: 'wiglett', species: 'wiglett' },
+      { key: 'wugtrio', species: 'wugtrio' },
+      { key: 'bombirdier', species: 'bombirdier' },
+      { key: 'finizen', species: 'finizen' },
+      { key: 'palafin', species: 'palafin' },
+      {
+        key: 'palafinhero',
+        species: 'palafin-hero'
+      },
+      { key: 'varoom', species: 'varoom' },
+      { key: 'revavroom', species: 'revavroom' },
+      { key: 'cyclizar', species: 'cyclizar' },
+      { key: 'orthworm', species: 'orthworm' },
+      { key: 'glimmet', species: 'glimmet' },
+      { key: 'glimmora', species: 'glimmora' },
+      { key: 'greavard', species: 'greavard' },
+      { key: 'houndstone', species: 'houndstone' },
+      { key: 'flamigo', species: 'flamigo' },
+      { key: 'cetoddle', species: 'cetoddle' },
+      { key: 'cetitan', species: 'cetitan' },
+      { key: 'veluza', species: 'veluza' },
+      { key: 'dondozo', species: 'dondozo' },
+      { key: 'tatsugiri', species: 'tatsugiri' },
+      { key: 'annihilape', species: 'annihilape' },
+      { key: 'clodsire', species: 'clodsire' },
+      { key: 'farigiraf', species: 'farigiraf' },
+      {
+        key: 'dudunsparce',
+        species: 'dudunsparce'
+      },
+      {
+        key: 'dudunsparcethreesegment',
+        species: 'dudunsparcethreesegment'
+      },
+      { key: 'kingambit', species: 'kingambit' },
+      { key: 'greattusk', species: 'Great Tusk' },
+      {
+        key: 'screamtail',
+        species: 'Scream Tail'
+      },
+      {
+        key: 'brutebonnet',
+        species: 'Brute Bonnet'
+      },
+      {
+        key: 'fluttermane',
+        species: 'Flutter Mane'
+      },
+      {
+        key: 'slitherwing',
+        species: 'Slither Wing'
+      },
+      {
+        key: 'sandyshocks',
+        species: 'Sandy Shocks'
+      },
+      {
+        key: 'irontreads',
+        species: 'Iron Treads'
+      },
+      {
+        key: 'ironbundle',
+        species: 'Iron Bundle'
+      },
+      { key: 'ironhands', species: 'Iron Hands' },
+      {
+        key: 'ironjugulis',
+        species: 'Iron Jugulis'
+      },
+      { key: 'ironmoth', species: 'Iron Moth' },
+      {
+        key: 'ironthorns',
+        species: 'Iron Thorns'
+      },
+      { key: 'frigibax', species: 'frigibax' },
+      { key: 'arctibax', species: 'arctibax' },
+      { key: 'baxcalibur', species: 'baxcalibur' },
+      { key: 'gimmighoul', species: 'gimmighoul' },
+      {
+        key: 'gimmighoulroaming',
+        species: 'gimmighoulroaming'
+      },
+      { key: 'gholdengo', species: 'gholdengo' },
+      { key: 'wochien', species: 'Wo-Chien' },
+      { key: 'chienpao', species: 'Chien-Pao' },
+      { key: 'tinglu', species: 'Ting-Lu' },
+      { key: 'chiyu', species: 'Chi-Yu' },
+      {
+        key: 'roaringmoon',
+        species: 'Roaring Moon'
+      },
+      {
+        key: 'ironvaliant',
+        species: 'Iron Valiant'
+      },
+      { key: 'koraidon', species: 'koraidon' },
+      { key: 'miraidon', species: 'miraidon' },
+      {
+        key: 'walkingwake',
+        species: 'Walking Wake'
+      },
+      {
+        key: 'ironleaves',
+        species: 'Iron Leaves'
+      },
+      { key: 'dipplin', species: 'dipplin' },
+      {
+        key: 'poltchageist',
+        species: 'poltchageist'
+      },
+      {
+        key: 'poltchageistartisan',
+        species: 'poltchageist-artisan'
+      },
+      { key: 'sinistcha', species: 'sinistcha' },
+      {
+        key: 'sinistchamasterpiece',
+        species: 'sinistcha-masterpiece'
+      },
+      { key: 'okidogi', species: 'okidogi' },
+      { key: 'munkidori', species: 'munkidori' },
+      {
+        key: 'fezandipiti',
+        species: 'fezandipiti'
+      },
+      { key: 'ogerpon', species: 'ogerpon' },
+      {
+        key: 'ogerponcornerstone',
+        species: 'ogerpon-cornerstone'
+      },
+      {
+        key: 'ogerponcornerstonetera',
+        species: 'ogerpon-cornerstonetera'
+      },
+      {
+        key: 'ogerponhearthflame',
+        species: 'ogerpon-hearthflame'
+      },
+      {
+        key: 'ogerponhearthflametera',
+        species: 'ogerpon-hearthflametera'
+      },
+      {
+        key: 'ogerponwellspring',
+        species: 'ogerpon-wellspring'
+      },
+      {
+        key: 'ogerponwellspringtera',
+        species: 'ogerpon-wellspringtera'
+      },
+      {
+        key: 'ogerpontealtera',
+        species: 'ogerpon-tealtera'
+      },
+      { key: 'archaludon', species: 'archaludon' },
+      { key: 'hydrapple', species: 'hydrapple' },
+      {
+        key: 'gougingfire',
+        species: 'Gouging Fire'
+      },
+      {
+        key: 'ragingbolt',
+        species: 'Raging Bolt'
+      },
+      {
+        key: 'ironboulder',
+        species: 'Iron Boulder'
+      },
+      { key: 'ironcrown', species: 'Iron Crown' },
+      { key: 'terapagos', species: 'terapagos' },
+      {
+        key: 'terapagosterastal',
+        species: 'terapagos-terastal'
+      },
+      {
+        key: 'terapagosstellar',
+        species: 'terapagos-stellar'
+      },
+      {
+        key: 'pecharunt',
+        species: 'pecharunt'
       }
     ]);
   });

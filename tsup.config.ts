@@ -4,7 +4,7 @@ export default defineConfig({
   outDir: 'api',
   clean: true,
   dts: false,
-  entry: ['src/**/*.ts', '!src/**/*.d.ts'],
+  entry: ['src/**'],
   format: ['esm'],
   minify: false,
   skipNodeModulesBundle: true,
@@ -14,5 +14,9 @@ export default defineConfig({
   bundle: false,
   shims: false,
   keepNames: true,
-  splitting: false
+  splitting: false,
+  define: {
+    'globalThis.process': JSON.stringify(true),
+    'process.env.NODE_ENV': JSON.stringify('production')
+  }
 });

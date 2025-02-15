@@ -1,4 +1,4 @@
-import { baseFuzzySchema, type BaseFuzzyArgs } from '#validations/fuzzyArgs/base.ts';
+import { baseFuzzySchema, type BaseFuzzyArgs } from '#validations/fuzzyArgs/base';
 import { s, type SchemaOf } from '@sapphire/shapeshift';
 
 export interface GetFuzzyMoveArgs extends BaseFuzzyArgs {
@@ -9,7 +9,7 @@ export interface GetFuzzyMoveArgs extends BaseFuzzyArgs {
 }
 
 const getFuzzyMoveSchema: SchemaOf<GetFuzzyMoveArgs> = baseFuzzySchema.extend({
-  move: s.string
+  move: s.string({ message: 'The move has to be a string' })
 });
 
 export function validateGetFuzzyMoveArgs(args: GetFuzzyMoveArgs): GetFuzzyMoveArgs {

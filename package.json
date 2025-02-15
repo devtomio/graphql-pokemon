@@ -1,105 +1,141 @@
 {
   "name": "@favware/graphql-pokemon",
-  "version": "7.0.2",
+  "version": "8.7.0",
   "description": "Extensive Pokemon GraphQL API",
   "author": "@favware",
   "license": "MIT",
   "type": "module",
-  "main": "dist/graphql-pokemon.cjs",
-  "module": "dist/graphql-pokemon.js",
-  "types": "dist/graphql-pokemon.d.ts",
+  "main": "dist/codegen/cjs/graphql-pokemon.cjs",
+  "module": "dist/codegen/esm/graphql-pokemon.mjs",
+  "types": "dist/codegen/cjs/graphql-pokemon.d.cts",
   "exports": {
-    "import": "./dist/graphql-pokemon.js",
-    "require": "./dist/graphql-pokemon.cjs",
-    "types": "./dist/graphql-pokemon.d.ts"
+    ".": {
+      "import": {
+        "types": "./dist/codegen/esm/graphql-pokemon.d.ts",
+        "default": "./dist/codegen/esm/graphql-pokemon.mjs"
+      },
+      "require": {
+        "types": "./dist/codegen/cjs/graphql-pokemon.d.cts",
+        "default": "./dist/codegen/cjs/graphql-pokemon.cjs"
+      }
+    },
+    "./utilities": {
+      "import": {
+        "types": "./dist/utilities/esm/index.d.ts",
+        "default": "./dist/utilities/esm/index.mjs"
+      },
+      "require": {
+        "types": "./dist/utilities/cjs/index.d.cts",
+        "default": "./dist/utilities/cjs/index.cjs"
+      }
+    }
   },
   "sideEffects": false,
   "imports": {
     "#assets/*": "./api/lib/assets/*.js",
-    "#jsonAssets/*": "./api/lib/assets/*",
+    "#jsonAssets/*": "./api/lib/assets/*.json",
     "#dexdata/*": "./api/lib/assets/pokedex-data/*.js",
     "#resolvers/*": "./api/lib/resolvers/*.js",
+    "#types/*": "./api/lib/types/*.js",
     "#utils/*": "./api/lib/utils/*.js",
     "#validations/*": "./api/lib/validations/*.js",
     "#mappers/*": "./api/lib/mappers/*.js",
-    "#root/*": "./api/*.js",
-    "#scripts/*": "./scripts/*.mjs"
+    "#root/*": "./api/*.js"
   },
-  "homepage": "https://graphqlpokemon.favware.tech/",
+  "homepage": "https://graphql-pokemon.js.org/",
   "scripts": {
-    "lint": "eslint src tests scripts --ext ts,mjs --fix",
-    "format": "prettier --write --loglevel=warn \"{src,tests,scripts}/**/*.{ts,json}\"",
+    "lint": "eslint src tests scripts --ext ts --fix",
+    "format": "prettier --write --log-level=warn \"{src,tests,scripts}/**/*.{ts,json}\"",
     "test": "vitest run",
-    "typecheck": "tsc -b src",
+    "typecheck": "tsc -b src && tsc -b tests",
     "start": "node --enable-source-maps api/index.js",
-    "build": "tsup --onSuccess \"node scripts/on-build-success.mjs\"",
-    "watch": "tsup --watch --onSuccess \"node scripts/on-build-success.mjs\"",
+    "build": "tsup --onSuccess \"yarn tsx scripts/on-build-success.ts\"",
+    "watch": "tsup --watch --onSuccess \"yarn tsx scripts/on-build-success.ts\"",
+    "docs": "yarn magidoc generate -f ./docs/magidoc.mjs",
     "dev": "yarn build && yarn start",
-    "clean": "node scripts/clean.mjs",
-    "update": "yarn upgrade-interactive",
+    "clean": "rimraf codegen/ dist/ api/",
     "bump": "cliff-jumper",
     "check-update": "cliff-jumper --dry-run",
-    "codegen": "graphql-codegen && npm-run-all -s \"typescript:*\"",
-    "typescript:replace-invalid-code": "replace-in-file /\\}\\;/g \"}\" codegen/graphql-pokemon.ts --isRegex",
-    "typescript:compile": "tsup --config tsup.config-codegen.ts",
-    "au:tiers": "node scripts/smogontiers.mjs",
-    "au:learnsets": "node scripts/pokemonlearnsets.mjs",
-    "prepack": "pinst --disable",
-    "postpack": "pinst --enable",
-    "postinstall": "husky install .github/husky"
+    "package": "graphql-codegen && npm-run-all -s \"package:*\"",
+    "package:replace-invalid-code": "replace-in-file /\\}\\;/g \"}\" codegen/graphql-pokemon.ts --isRegex",
+    "package:compile": "tsup --config tsup.config-package.ts",
+    "tsx": "tsx --tsconfig ./scripts/tsconfig.json",
+    "au:tiers": "yarn tsx ./scripts/data-gen-scripts/scripted-updaters/asset-updaters/tiers-updater.ts",
+    "au:learnsets": "yarn tsx ./scripts/data-gen-scripts/scripted-updaters/asset-updaters/learnsets-updater.ts",
+    "au:testdata": "yarn tsx ./scripts/data-gen-scripts/scripted-updaters/update-test-files.ts",
+    "au:flavors": "yarn tsx ./scripts/data-gen-scripts/scripted-updaters/flavor-text-updater/flavor-text-updater.ts",
+    "au:classifications": "yarn tsx ./scripts/data-gen-scripts/scripted-updaters/classification-updater/classification-updater.ts",
+    "au:ipa": "yarn tsx ./scripts/data-gen-scripts/scripted-updaters/ipa-name-updater/ipa-updater.ts",
+    "au:abilities": "yarn tsx ./scripts/data-gen-scripts/scripted-updaters/asset-updaters/abilities-updater.ts",
+    "au:items": "yarn tsx ./scripts/data-gen-scripts/scripted-updaters/asset-updaters/items-updater.ts",
+    "au:moves": "yarn tsx ./scripts/data-gen-scripts/scripted-updaters/asset-updaters/moves-updater.ts",
+    "au:cries": "yarn tsx ./scripts/data-gen-scripts/scripted-updaters/cries-updater/cry-updater.ts"
   },
   "dependencies": {
-    "graphql": "^16.5.0"
+    "graphql": "^16.10.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.0.3",
-    "@commitlint/config-conventional": "^17.0.3",
-    "@discordjs/collection": "^1.0.1",
-    "@favware/cliff-jumper": "^1.8.6",
-    "@graphql-codegen/cli": "^2.11.6",
-    "@graphql-codegen/schema-ast": "^2.5.1",
-    "@graphql-codegen/typescript": "^2.7.3",
-    "@graphql-codegen/typescript-resolvers": "^2.7.3",
-    "@sapphire/eslint-config": "^4.3.7",
-    "@sapphire/fetch": "^2.4.1",
-    "@sapphire/prettier-config": "^1.4.3",
-    "@sapphire/shapeshift": "^3.5.1",
-    "@sapphire/time-utilities": "^1.7.5",
-    "@sapphire/ts-config": "^3.3.4",
-    "@sapphire/utilities": "^3.9.0",
-    "@skyra/jaro-winkler": "^1.1.0",
-    "@swc/core": "^1.2.230",
-    "@types/koa": "^2.13.5",
-    "@types/node": "^18.6.3",
-    "@typescript-eslint/eslint-plugin": "^5.33.0",
-    "@typescript-eslint/parser": "^5.33.0",
-    "apollo-server-koa": "^3.10.1",
-    "c8": "^7.12.0",
-    "colorette": "^2.0.19",
+    "@apollo/server": "^4.11.3",
+    "@as-integrations/koa": "^1.1.1",
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@discordjs/collection": "^2.1.1",
+    "@favware/cliff-jumper": "^6.0.0",
+    "@graphql-codegen/cli": "^5.0.4",
+    "@graphql-codegen/schema-ast": "^4.1.0",
+    "@graphql-codegen/typescript": "^4.1.1",
+    "@graphql-codegen/typescript-resolvers": "^4.4.0",
+    "@koa/cors": "^5.0.0",
+    "@magidoc/cli": "^6.2.0",
+    "@sapphire/eslint-config": "^5.0.5",
+    "@sapphire/fetch": "^3.0.5",
+    "@sapphire/prettier-config": "^2.0.0",
+    "@sapphire/shapeshift": "^4.0.0",
+    "@sapphire/timestamp": "^1.0.5",
+    "@sapphire/ts-config": "^5.0.1",
+    "@skyra/jaro-winkler": "^1.1.1",
+    "@swc/core": "^1.10.12",
+    "@types/async": "^3.2.24",
+    "@types/cheerio": "^0.22.35",
+    "@types/koa": "^2.15.0",
+    "@types/koa-bodyparser": "^4.3.12",
+    "@types/koa__cors": "^5.0.0",
+    "@types/node": "^20.17.3",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "@vitest/coverage-v8": "^3.0.4",
+    "async": "^3.2.6",
+    "cheerio": "^1.0.0",
+    "colorette": "^2.0.20",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.22.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "graphql-parse-resolve-info": "^4.12.3",
-    "husky": "^8.0.1",
-    "koa": "^2.13.4",
-    "lint-staged": "^13.0.3",
-    "npm-run-all": "^4.1.5",
-    "pinst": "^3.0.0",
-    "prettier": "^2.7.1",
-    "pretty-quick": "^3.1.3",
-    "replace-in-file": "^6.3.5",
-    "tsup": "^6.2.2",
-    "typescript": "^4.7.4",
-    "vitest": "^0.21.1"
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "graphql-tag": "^2.12.6",
+    "json-stream-stringify": "^3.1.6",
+    "koa": "^2.15.3",
+    "koa-bodyparser": "^4.4.1",
+    "lint-staged": "^15.4.3",
+    "npm-run-all2": "^7.0.2",
+    "prettier": "^3.4.2",
+    "replace-in-file": "^8.3.0",
+    "rimraf": "^6.0.1",
+    "tsup": "^8.3.6",
+    "tsx": "^4.19.2",
+    "typescript": "~5.4.5",
+    "vitest": "^3.0.4"
   },
   "resolutions": {
     "ansi-regex": "^5.0.1",
-    "minimist": "^1.2.6"
+    "minimist": "^1.2.8",
+    "graphql@npm:16.9.0": "patch:graphql@npm%3A16.9.0#~/.yarn/patches/graphql-npm-16.9.0-a36f71845f.patch",
+    "@graphql-tools/merge@npm:^9.0.0": "patch:@graphql-tools/merge@npm%3A9.0.4#~/.yarn/patches/@graphql-tools-merge-npm-9.0.4-169df8c300.patch",
+    "@graphql-tools/merge@npm:^9.0.3": "patch:@graphql-tools/merge@npm%3A9.0.4#~/.yarn/patches/@graphql-tools-merge-npm-9.0.4-169df8c300.patch",
+    "graphql@npm:^16.10.0": "patch:graphql@npm%3A16.10.0#~/.yarn/patches/graphql-npm-16.10.0-bc1b088de1.patch"
   },
   "files": [
-    "dist/*",
-    "graphql/*"
+    "dist/",
+    "graphql/"
   ],
   "repository": {
     "type": "git",
@@ -121,6 +157,7 @@
     ]
   },
   "lint-staged": {
+    "*": "prettier --ignore-unknown --write",
     "*.{mjs,js,ts}": "eslint --fix --ext mjs,js,ts"
   },
   "config": {
@@ -131,8 +168,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "packageManager": "yarn@3.2.2",
+  "packageManager": "yarn@4.6.0",
   "volta": {
-    "node": "18.7.0"
+    "node": "22.13.1"
   }
 }

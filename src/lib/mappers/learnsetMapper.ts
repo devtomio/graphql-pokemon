@@ -3,12 +3,12 @@ import { moves } from '#assets/moves';
 import { pokedex } from '#assets/pokedex';
 import type { PokemonTypes } from '#assets/pokemon-source';
 import { mapMoveDataToMoveGraphQL } from '#mappers/moveMapper';
-import type { Learnset, LearnsetLevelUpMove, LearnsetMove, Move, PokemonLearnset } from '#types';
-import { addPropertyToObjectFieldBased } from '#utils/addPropertyToObject';
+import type { Learnset, LearnsetLevelUpMove, LearnsetMove, Move, PokemonLearnset } from '#types/graphql-mapped-types';
+import type { Generation, NonNullish } from '#types/utility-types';
 import type { GraphQLSet } from '#utils/GraphQLSet';
-import { parseSpeciesForSprite } from '#utils/spriteParser';
-import { toLowerSingleWordCase } from '#utils/util';
-import type { Generation, NonNullish } from '#utils/utilTypes';
+import { addPropertyToObjectFieldBased } from '#utils/addPropertyToObject';
+import { parseSpeciesForSprite } from '#utils/sprite-parser';
+import { toLowerSingleWordCase } from '#utils/utils';
 import type { GetLearnsetArgs } from '#validations/getLearnsetArgs';
 import { cast, isNullish } from '@sapphire/utilities';
 
@@ -77,6 +77,7 @@ export function mapPokemonAndMovesToLearnsetGraphQL({ args, requestedFields }: M
       propertyKey: 'sprite',
       propertyValue: parseSpeciesForSprite({
         pokemonName: pokemonEntry.species,
+        pokemonNumber: pokemonEntry.num,
         baseSpecies: pokemonEntry.baseSpecies,
         specialSprite: pokemonEntry.specialSprite,
         specialShinySprite: pokemonEntry.specialShinySprite,
@@ -90,6 +91,7 @@ export function mapPokemonAndMovesToLearnsetGraphQL({ args, requestedFields }: M
       propertyKey: 'shinySprite',
       propertyValue: parseSpeciesForSprite({
         pokemonName: pokemonEntry.species,
+        pokemonNumber: pokemonEntry.num,
         baseSpecies: pokemonEntry.baseSpecies,
         specialSprite: pokemonEntry.specialSprite,
         specialShinySprite: pokemonEntry.specialShinySprite,
@@ -104,6 +106,7 @@ export function mapPokemonAndMovesToLearnsetGraphQL({ args, requestedFields }: M
       propertyKey: 'backSprite',
       propertyValue: parseSpeciesForSprite({
         pokemonName: pokemonEntry.species,
+        pokemonNumber: pokemonEntry.num,
         baseSpecies: pokemonEntry.baseSpecies,
         specialSprite: pokemonEntry.specialSprite,
         specialShinySprite: pokemonEntry.specialShinySprite,
@@ -118,6 +121,7 @@ export function mapPokemonAndMovesToLearnsetGraphQL({ args, requestedFields }: M
       propertyKey: 'shinyBackSprite',
       propertyValue: parseSpeciesForSprite({
         pokemonName: pokemonEntry.species,
+        pokemonNumber: pokemonEntry.num,
         baseSpecies: pokemonEntry.baseSpecies,
         specialSprite: pokemonEntry.specialSprite,
         specialShinySprite: pokemonEntry.specialShinySprite,
@@ -162,6 +166,11 @@ export function getLearnsetDataset(pokemon: string): Record<string, string[]> | 
   let learnsetFromDataset = learnsets.get(pokemon);
 
   let pokemonFromDataset: PokemonTypes.DexEntry | undefined = undefined;
+
+  // If the learnset is event only then overwrite it back to undefined to allow for further parsing
+  if (learnsetFromDataset?.eventOnly?.[0] === 'See base forme of this Pokémon') {
+    learnsetFromDataset = undefined;
+  }
 
   // Attempt to get the learnset from the base species
   if (!learnsetFromDataset) {

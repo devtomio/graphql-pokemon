@@ -114,17 +114,53 @@ describe('getPokemon', () => {
       expect(data.getPokemon).toEqual({
         abilities: {
           first: { name: 'Torrent' },
-          hidden: { name: 'Protean' },
           second: null,
+          hidden: { name: 'Protean' },
           special: { name: 'Battle Bond' }
         },
+        eggGroups: ['Water 1'],
+        evYields: {
+          hp: 0,
+          attack: 0,
+          defense: 0,
+          specialattack: 0,
+          specialdefense: 0,
+          speed: 3
+        },
+        evolutionLevel: '36',
+        flavorTexts: [
+          {
+            flavor: 'It makes shuriken out of mucus excreted from its thighs. These shuriken can cut cleanly through steel cables.',
+            game: 'Violet'
+          }
+        ],
+        forme: null,
+        formeLetter: null,
+        gender: { female: '12.5%', male: '87.5%' },
+        height: 1.5,
+        ipa: '/ɡrɛˈnɪndʒɑː/',
+        isEggObtainable: true,
         backSprite: 'https://play.pokemonshowdown.com/sprites/ani-back/greninja.gif',
+        levellingRate: 'Medium Slow',
+        maximumHatchTime: 5396,
+        minimumHatchTime: 5140,
+        num: 658,
+        otherFormes: ['greninjaash'],
+        respelling: 'greh-NIN-jah',
+        serebiiPage: 'https://www.serebii.net/pokedex-sv/greninja',
+        shinyBackSprite: 'https://play.pokemonshowdown.com/sprites/ani-back-shiny/greninja.gif',
+        shinySprite: 'https://play.pokemonshowdown.com/sprites/ani-shiny/greninja.gif',
+        smogonPage: 'https://www.smogon.com/dex/sv/pokemon/greninja',
         baseForme: null,
+        smogonTier: 'UU',
+        species: 'greninja',
+        sprite: 'https://play.pokemonshowdown.com/sprites/ani/greninja.gif',
+        types: [{ name: 'Water' }, { name: 'Dark' }],
         baseSpecies: null,
         baseStats: {
+          hp: 72,
           attack: 95,
           defense: 67,
-          hp: 72,
           specialattack: 103,
           specialdefense: 71,
           speed: 122
@@ -135,43 +171,10 @@ describe('getPokemon', () => {
           base: 45,
           percentageWithOrdinaryPokeballAtFullHealth: '11.9%'
         },
+        classification: 'Ninja Pokémon',
         color: 'Blue',
         cosmeticFormes: null,
-        eggGroups: ['Water 1'],
-        evYields: {
-          attack: 0,
-          defense: 0,
-          hp: 0,
-          specialattack: 0,
-          specialdefense: 0,
-          speed: 3
-        },
-        evolutionLevel: '36',
-        flavorTexts: [
-          {
-            flavor:
-              "It appears and vanishes with a ninja's grace. It toys with its enemies using swift movements, while slicing them with throwing stars of sharpest water.",
-            game: 'Alpha Sapphire'
-          }
-        ],
-        forme: null,
-        formeLetter: null,
-        gender: { female: '12.5%', male: '87.5%' },
-        height: 1.5,
-        isEggObtainable: true,
-        levellingRate: 'Medium Slow',
-        maximumHatchTime: 5396,
-        minimumHatchTime: 5140,
-        num: 658,
-        otherFormes: ['greninjaash'],
-        serebiiPage: 'https://www.serebii.net/pokedex-sm/658.shtml',
-        shinyBackSprite: 'https://play.pokemonshowdown.com/sprites/ani-back-shiny/greninja.gif',
-        shinySprite: 'https://play.pokemonshowdown.com/sprites/ani-shiny/greninja.gif',
-        smogonPage: 'https://www.smogon.com/dex/sm/pokemon/greninja',
-        smogonTier: 'Past',
-        species: 'greninja',
-        sprite: 'https://play.pokemonshowdown.com/sprites/ani/greninja.gif',
-        types: [{ name: 'Water' }, { name: 'Dark' }]
+        cry: 'https://play.pokemonshowdown.com/audio/cries/greninja.mp3'
       });
     });
 
@@ -207,14 +210,16 @@ describe('getPokemon', () => {
         forme: null,
         formeLetter: null,
         gender: { female: '50%', male: '50%' },
-        height: 3,
+        height: 3.3,
+        ipa: null,
         isEggObtainable: false,
         backSprite: 'https://play.pokemonshowdown.com/sprites/afd-back/missingno.png',
         levellingRate: null,
         maximumHatchTime: null,
         minimumHatchTime: null,
         num: 0,
-        otherFormes: null,
+        otherFormes: ['m00'],
+        respelling: null,
         serebiiPage: '',
         shinyBackSprite: 'https://play.pokemonshowdown.com/sprites/afd-back-shiny/missingno.png',
         shinySprite: 'https://play.pokemonshowdown.com/sprites/afd-shiny/missingno.png',
@@ -234,13 +239,15 @@ describe('getPokemon', () => {
           speed: 29
         },
         baseStatsTotal: 210,
-        bulbapediaPage: '',
+        bulbapediaPage: 'https://bulbapedia.bulbagarden.net/wiki/MissingNo._(Pokémon)',
         catchRate: {
           base: 0,
           percentageWithOrdinaryPokeballAtFullHealth: '0%'
         },
+        classification: null,
         color: 'Gray',
-        cosmeticFormes: null
+        cosmeticFormes: null,
+        cry: null
       });
     });
 
@@ -251,7 +258,12 @@ describe('getPokemon', () => {
       });
 
       expect(data.getPokemon).toEqual({
-        abilities: { first: { name: 'Blaze' }, second: null, hidden: { name: 'Flash Fire' }, special: null },
+        abilities: {
+          first: { name: 'Blaze' },
+          second: null,
+          hidden: { name: 'Frisk' },
+          special: null
+        },
         eggGroups: ['Field'],
         evYields: {
           hp: 0,
@@ -265,14 +277,15 @@ describe('getPokemon', () => {
         flavorTexts: [
           {
             flavor:
-              'Said to purify lost, forsaken souls with its flames and guide them to the afterlife. I believe its form has been influenced by the energy of the [[Mount Coron',
-            game: 'Legends Arceus'
+              "Said to purify lost, forsaken souls with its flames and guide them to the afterlife. I believe its form has been influenced by the energy of the sacred mountain towering at Hisui's center.",
+            game: 'Legends: Arceus'
           }
         ],
         forme: 'Hisui',
         formeLetter: 'H',
         gender: { female: '12.5%', male: '87.5%' },
         height: 1.6,
+        ipa: '/taɪˈfloʊʒən/',
         isEggObtainable: true,
         backSprite: 'https://play.pokemonshowdown.com/sprites/gen5-back/typhlosion-hisui.png',
         levellingRate: 'Medium Slow',
@@ -280,16 +293,17 @@ describe('getPokemon', () => {
         minimumHatchTime: 5140,
         num: 157,
         otherFormes: ['typhlosion'],
-        serebiiPage: 'https://www.serebii.net/pokedex-swsh/typhlosion',
+        respelling: 'tie-FLOW-sion',
+        serebiiPage: 'https://www.serebii.net/pokedex-sv/typhlosion',
         shinyBackSprite: 'https://play.pokemonshowdown.com/sprites/gen5-back-shiny/typhlosion-hisui.png',
         shinySprite: 'https://play.pokemonshowdown.com/sprites/gen5-shiny/typhlosion-hisui.png',
-        smogonPage: 'https://www.smogon.com/dex/ss/pokemon/typhlosion-hisui',
+        smogonPage: 'https://www.smogon.com/dex/sv/pokemon/typhlosion-hisui',
         baseForme: null,
-        smogonTier: 'Future',
+        smogonTier: 'NU',
         species: 'typhlosion-hisui',
         sprite: 'https://play.pokemonshowdown.com/sprites/gen5/typhlosion-hisui.png',
         types: [{ name: 'Fire' }, { name: 'Ghost' }],
-        baseSpecies: 'Typhlosion',
+        baseSpecies: 'typhlosion',
         baseStats: {
           hp: 73,
           attack: 84,
@@ -299,10 +313,15 @@ describe('getPokemon', () => {
           speed: 95
         },
         baseStatsTotal: 534,
-        bulbapediaPage: 'https://bulbapedia.bulbagarden.net/wiki/Typhlosion_(Pokémon)',
-        catchRate: { base: 45, percentageWithOrdinaryPokeballAtFullHealth: '11.9%' },
+        bulbapediaPage: 'https://bulbapedia.bulbagarden.net/wiki/typhlosion_(Pokémon)',
+        catchRate: {
+          base: 45,
+          percentageWithOrdinaryPokeballAtFullHealth: '11.9%'
+        },
+        classification: 'Ghost Flame Pokémon',
         color: 'Yellow',
-        cosmeticFormes: null
+        cosmeticFormes: null,
+        cry: 'https://play.pokemonshowdown.com/audio/cries/typhlosion.mp3'
       });
     });
   });

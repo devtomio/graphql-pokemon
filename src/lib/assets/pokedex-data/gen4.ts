@@ -22,7 +22,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'turtwig',
       types: [TypesEnum.Grass],
       weightkg: 10.2,
-      aliases: ['naetoru']
+      aliases: ['naetoru'],
+      classification: 'Tiny Leaf Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/turtwig.mp3',
+      respelling: 'TUR-twig',
+      ipa: '/ˈtərtwɪɡ/'
     }
   ],
   [
@@ -46,7 +50,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'grotle',
       types: [TypesEnum.Grass],
       weightkg: 97,
-      aliases: ['hayashigame']
+      aliases: ['hayashigame'],
+      classification: 'Grove Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/grotle.mp3',
+      respelling: 'GRAHT-ull',
+      ipa: '/ˈɡrɑːtəl/'
     }
   ],
   [
@@ -69,7 +77,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'torterra',
       types: [TypesEnum.Grass, TypesEnum.Ground],
       weightkg: 310,
-      aliases: ['dodaitosu']
+      aliases: ['dodaitosu'],
+      classification: 'Continent Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/torterra.mp3',
+      respelling: 'tor-TERR-uh',
+      ipa: '/tɔːrˈtɛrə/'
     }
   ],
   [
@@ -91,7 +103,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'chimchar',
       types: [TypesEnum.Fire],
       weightkg: 6.2,
-      aliases: ['hikozaru']
+      aliases: ['hikozaru'],
+      classification: 'Chimp Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/chimchar.mp3',
+      respelling: 'CHIM-char',
+      ipa: '/ˈtʃɪmtʃɑːr/'
     }
   ],
   [
@@ -115,7 +131,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'monferno',
       types: [TypesEnum.Fire, TypesEnum.Fighting],
       weightkg: 22,
-      aliases: ['moukazaru']
+      aliases: ['moukazaru'],
+      classification: 'Playful Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/monferno.mp3',
+      respelling: 'mon-FERN-oh',
+      ipa: '/mɒnˈfɜːrnoʊ/'
     }
   ],
   [
@@ -138,13 +158,17 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'infernape',
       types: [TypesEnum.Fire, TypesEnum.Fighting],
       weightkg: 55,
-      aliases: ['goukazaru', 'nape']
+      aliases: ['goukazaru', 'nape'],
+      classification: 'Flame Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/infernape.mp3',
+      respelling: 'in-FER-nape',
+      ipa: '/ɪnˈfɜːrneɪp/'
     }
   ],
   [
     'piplup',
     {
-      abilities: { first: 'torrent', hidden: 'defiant' },
+      abilities: { first: 'torrent', hidden: 'competitive' },
       baseStats: { hp: 53, atk: 51, def: 53, spa: 61, spd: 56, spe: 40 },
       catchRate: { base: 45, percentageWithOrdinaryPokeballAtFullHealth: '11.9%' },
       color: 'Blue',
@@ -160,13 +184,17 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'piplup',
       types: [TypesEnum.Water],
       weightkg: 5.2,
-      aliases: ['potchama']
+      aliases: ['potchama'],
+      classification: 'Penguin Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/piplup.mp3',
+      respelling: 'PIP-plup',
+      ipa: '/ˈpɪplʌp/'
     }
   ],
   [
     'prinplup',
     {
-      abilities: { first: 'torrent', hidden: 'defiant' },
+      abilities: { first: 'torrent', hidden: 'competitive' },
       baseStats: { hp: 64, atk: 66, def: 68, spa: 81, spd: 76, spe: 50 },
       catchRate: { base: 45, percentageWithOrdinaryPokeballAtFullHealth: '11.9%' },
       color: 'Blue',
@@ -184,13 +212,17 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'prinplup',
       types: [TypesEnum.Water],
       weightkg: 23,
-      aliases: ['pottaishi']
+      aliases: ['pottaishi'],
+      classification: 'Penguin Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/prinplup.mp3',
+      respelling: 'PRIN-plup',
+      ipa: '/ˈprɪnplʌp/'
     }
   ],
   [
     'empoleon',
     {
-      abilities: { first: 'torrent', hidden: 'defiant' },
+      abilities: { first: 'torrent', hidden: 'competitive' },
       baseStats: { hp: 84, atk: 86, def: 88, spa: 111, spd: 101, spe: 60 },
       catchRate: { base: 45, percentageWithOrdinaryPokeballAtFullHealth: '11.9%' },
       color: 'Blue',
@@ -207,7 +239,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'empoleon',
       types: [TypesEnum.Water, TypesEnum.Steel],
       weightkg: 84.5,
-      aliases: ['enperuto']
+      aliases: ['enperuto'],
+      classification: 'Emperor Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/empoleon.mp3',
+      respelling: 'im-PO-lee-on',
+      ipa: '/ɪmˈpoʊliːɒn/'
     }
   ],
   [
@@ -215,7 +251,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
     {
       abilities: { first: 'keeneye', hidden: 'reckless' },
       baseStats: { hp: 40, atk: 55, def: 30, spa: 30, spd: 30, spe: 60 },
-      catchRate: { base: 255, percentageWithOrdinaryPokeballAtFullHealth: '43.9%' },
+      catchRate: {
+        base: 255,
+        percentageWithOrdinaryPokeballAtFullHealth: '43.9%'
+      },
       color: 'Brown',
       eggGroups: ['Flying'],
       evYields: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 1 },
@@ -229,7 +268,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'starly',
       types: [TypesEnum.Normal, TypesEnum.Flying],
       weightkg: 2,
-      aliases: ['mukkuru']
+      aliases: ['mukkuru'],
+      classification: 'Starling Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/starly.mp3',
+      respelling: 'STAR-lee',
+      ipa: '/ˈstɑːrliː/'
     }
   ],
   [
@@ -237,7 +280,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
     {
       abilities: { first: 'intimidate', hidden: 'reckless' },
       baseStats: { hp: 55, atk: 75, def: 50, spa: 40, spd: 40, spe: 80 },
-      catchRate: { base: 120, percentageWithOrdinaryPokeballAtFullHealth: '24.9%' },
+      catchRate: {
+        base: 120,
+        percentageWithOrdinaryPokeballAtFullHealth: '24.9%'
+      },
       color: 'Brown',
       eggGroups: ['Flying'],
       evYields: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 2 },
@@ -253,7 +299,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'staravia',
       types: [TypesEnum.Normal, TypesEnum.Flying],
       weightkg: 15.5,
-      aliases: ['mukubaado']
+      aliases: ['mukubaado'],
+      classification: 'Starling Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/staravia.mp3',
+      respelling: 'star-AY-vee-ah',
+      ipa: '/stɑːrˈeɪviːɑː/'
     }
   ],
   [
@@ -276,7 +326,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'staraptor',
       types: [TypesEnum.Normal, TypesEnum.Flying],
       weightkg: 24.9,
-      aliases: ['mukuhooku']
+      aliases: ['mukuhooku'],
+      classification: 'Predator Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/staraptor.mp3',
+      respelling: 'star-RAPT-orr',
+      ipa: '/stɑːˈræptɒr/'
     }
   ],
   [
@@ -284,7 +338,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
     {
       abilities: { first: 'simple', second: 'unaware', hidden: 'moody' },
       baseStats: { hp: 59, atk: 45, def: 40, spa: 35, spd: 40, spe: 31 },
-      catchRate: { base: 255, percentageWithOrdinaryPokeballAtFullHealth: '43.9%' },
+      catchRate: {
+        base: 255,
+        percentageWithOrdinaryPokeballAtFullHealth: '43.9%'
+      },
       color: 'Brown',
       eggGroups: ['Water 1', 'Field'],
       evYields: { hp: 1, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },
@@ -298,7 +355,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'bidoof',
       types: [TypesEnum.Normal],
       weightkg: 20,
-      aliases: ['bippa']
+      aliases: ['bippa'],
+      classification: 'Plump Mouse Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/bidoof.mp3',
+      respelling: 'BEE-doof',
+      ipa: '/ˈbiːduːf/'
     }
   ],
   [
@@ -321,7 +382,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'bibarel',
       types: [TypesEnum.Normal, TypesEnum.Water],
       weightkg: 31.5,
-      aliases: ['biidaru']
+      aliases: ['biidaru'],
+      classification: 'Beaver Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/bibarel.mp3',
+      respelling: 'BEE-bear-ull',
+      ipa: '/ˈbiːbɛərəl/'
     }
   ],
   [
@@ -329,7 +394,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
     {
       abilities: { first: 'shedskin', hidden: 'runaway' },
       baseStats: { hp: 37, atk: 25, def: 41, spa: 25, spd: 41, spe: 25 },
-      catchRate: { base: 255, percentageWithOrdinaryPokeballAtFullHealth: '43.9%' },
+      catchRate: {
+        base: 255,
+        percentageWithOrdinaryPokeballAtFullHealth: '43.9%'
+      },
       color: 'Red',
       eggGroups: ['Bug'],
       evYields: { hp: 0, atk: 0, def: 1, spa: 0, spd: 0, spe: 0 },
@@ -343,7 +411,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'kricketot',
       types: [TypesEnum.Bug],
       weightkg: 2.2,
-      aliases: ['korobooshi']
+      aliases: ['korobooshi'],
+      classification: 'Cricket Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/kricketot.mp3',
+      respelling: 'KRICK-eh-tot',
+      ipa: '/ˈkrɪkɛtɒt/'
     }
   ],
   [
@@ -366,7 +438,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'kricketune',
       types: [TypesEnum.Bug],
       weightkg: 25.5,
-      aliases: ['korotokku']
+      aliases: ['korotokku'],
+      classification: 'Cricket Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/kricketune.mp3',
+      respelling: 'KRICK-eh-toon',
+      ipa: '/ˈkrɪkɛtuːn/'
     }
   ],
   [
@@ -374,7 +450,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
     {
       abilities: { first: 'rivalry', second: 'intimidate', hidden: 'guts' },
       baseStats: { hp: 45, atk: 65, def: 34, spa: 40, spd: 34, spe: 45 },
-      catchRate: { base: 235, percentageWithOrdinaryPokeballAtFullHealth: '41.3%' },
+      catchRate: {
+        base: 235,
+        percentageWithOrdinaryPokeballAtFullHealth: '41.3%'
+      },
       color: 'Blue',
       eggGroups: ['Field'],
       evYields: { hp: 0, atk: 1, def: 0, spa: 0, spd: 0, spe: 0 },
@@ -388,7 +467,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'shinx',
       types: [TypesEnum.Electric],
       weightkg: 9.5,
-      aliases: ['korinku']
+      aliases: ['korinku'],
+      classification: 'Flash Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/shinx.mp3',
+      respelling: 'SHINKS',
+      ipa: '/ˈʃɪŋks/'
     }
   ],
   [
@@ -396,7 +479,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
     {
       abilities: { first: 'rivalry', second: 'intimidate', hidden: 'guts' },
       baseStats: { hp: 60, atk: 85, def: 49, spa: 60, spd: 49, spe: 60 },
-      catchRate: { base: 120, percentageWithOrdinaryPokeballAtFullHealth: '24.9%' },
+      catchRate: {
+        base: 120,
+        percentageWithOrdinaryPokeballAtFullHealth: '24.9%'
+      },
       color: 'Blue',
       eggGroups: ['Field'],
       evYields: { hp: 0, atk: 2, def: 0, spa: 0, spd: 0, spe: 0 },
@@ -412,7 +498,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'luxio',
       types: [TypesEnum.Electric],
       weightkg: 30.5,
-      aliases: ['rukushio']
+      aliases: ['rukushio'],
+      classification: 'Spark Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/luxio.mp3',
+      respelling: 'LUCKS-ee-oh',
+      ipa: '/ˈlʌksiːoʊ/'
     }
   ],
   [
@@ -435,15 +525,26 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'luxray',
       types: [TypesEnum.Electric],
       weightkg: 42,
-      aliases: ['rentoraa']
+      aliases: ['rentoraa'],
+      classification: 'Gleam Eyes Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/luxray.mp3',
+      respelling: 'LUCKS-ray',
+      ipa: '/ˈlʌksreɪ/'
     }
   ],
   [
     'budew',
     {
-      abilities: { first: 'naturalcure', second: 'poisonpoint', hidden: 'leafguard' },
+      abilities: {
+        first: 'naturalcure',
+        second: 'poisonpoint',
+        hidden: 'leafguard'
+      },
       baseStats: { hp: 40, atk: 30, def: 35, spa: 50, spd: 70, spe: 55 },
-      catchRate: { base: 255, percentageWithOrdinaryPokeballAtFullHealth: '43.9%' },
+      catchRate: {
+        base: 255,
+        percentageWithOrdinaryPokeballAtFullHealth: '43.9%'
+      },
       color: 'Green',
       eggGroups: ['Undiscovered'],
       evYields: { hp: 0, atk: 0, def: 0, spa: 1, spd: 0, spe: 0 },
@@ -457,13 +558,21 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'budew',
       types: [TypesEnum.Grass, TypesEnum.Poison],
       weightkg: 1.2,
-      aliases: ['subomii']
+      aliases: ['subomii'],
+      classification: 'Bud Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/budew.mp3',
+      respelling: 'Buh-DOO',
+      ipa: '/bəˈduː/'
     }
   ],
   [
     'roserade',
     {
-      abilities: { first: 'naturalcure', second: 'poisonpoint', hidden: 'technician' },
+      abilities: {
+        first: 'naturalcure',
+        second: 'poisonpoint',
+        hidden: 'technician'
+      },
       baseStats: { hp: 60, atk: 70, def: 65, spa: 125, spd: 105, spe: 90 },
       catchRate: { base: 75, percentageWithOrdinaryPokeballAtFullHealth: '17.5%' },
       color: 'Green',
@@ -480,7 +589,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'roserade',
       types: [TypesEnum.Grass, TypesEnum.Poison],
       weightkg: 14.5,
-      aliases: ['rozureido']
+      aliases: ['rozureido'],
+      classification: 'Bouquet Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/roserade.mp3',
+      respelling: 'ROSE-raid',
+      ipa: '/ˈroʊzreɪd/'
     }
   ],
   [
@@ -502,7 +615,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'cranidos',
       types: [TypesEnum.Rock],
       weightkg: 31.5,
-      aliases: ['zugaidosu']
+      aliases: ['zugaidosu'],
+      classification: 'Head Butt Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/cranidos.mp3',
+      respelling: 'CRANE-ee-dose',
+      ipa: '/ˈkreɪniːdoʊs/'
     }
   ],
   [
@@ -525,7 +642,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'rampardos',
       types: [TypesEnum.Rock],
       weightkg: 102.5,
-      aliases: ['ramuparudo']
+      aliases: ['ramuparudo'],
+      classification: 'Head Butt Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/rampardos.mp3',
+      respelling: 'ram-PAR-dose',
+      ipa: '/ræmˈpɑːrdoʊs/'
     }
   ],
   [
@@ -547,7 +668,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'shieldon',
       types: [TypesEnum.Rock, TypesEnum.Steel],
       weightkg: 57,
-      aliases: ['tatetopusu']
+      aliases: ['tatetopusu'],
+      classification: 'Shield Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/shieldon.mp3',
+      respelling: 'SHEEL-donn',
+      ipa: '/ˈʃiːldɒn/'
     }
   ],
   [
@@ -570,7 +695,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'bastiodon',
       types: [TypesEnum.Rock, TypesEnum.Steel],
       weightkg: 149.5,
-      aliases: ['toridepusu']
+      aliases: ['toridepusu'],
+      classification: 'Shield Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/bastiodon.mp3',
+      respelling: 'BAS-tee-oh-donn',
+      ipa: '/ˈbæstiːoʊdɒn/'
     }
   ],
   [
@@ -579,7 +708,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       abilities: { first: 'shedskin', hidden: 'overcoat' },
       baseForme: 'Plant',
       baseStats: { hp: 40, atk: 29, def: 45, spa: 29, spd: 45, spe: 36 },
-      catchRate: { base: 120, percentageWithOrdinaryPokeballAtFullHealth: '24.9%' },
+      catchRate: {
+        base: 120,
+        percentageWithOrdinaryPokeballAtFullHealth: '24.9%'
+      },
       color: 'Green',
       cosmeticFormes: ['Burmy-Sandy', 'Burmy-Trash'],
       eggGroups: ['Bug'],
@@ -594,7 +726,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'burmy',
       types: [TypesEnum.Bug],
       weightkg: 3.4,
-      aliases: ['burmygrass', 'burmyplant', 'burmysandy', 'burmytrash', 'minomutchi']
+      aliases: ['burmygrass', 'burmyplant', 'burmysandy', 'burmytrash', 'minomutchi'],
+      classification: 'Bagworm Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/burmy.mp3',
+      respelling: 'BURR-mee',
+      ipa: '/ˈbɜːrmiː/'
     }
   ],
   [
@@ -619,14 +755,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'wormadam',
       types: [TypesEnum.Bug, TypesEnum.Grass],
       weightkg: 6.5,
-      aliases: ['minomadamu', 'wormadamgrass', 'wormadamp', 'wormadamplant', 'wormadamplantcloak']
+      aliases: ['minomadamu', 'wormadamgrass', 'wormadamp', 'wormadamplant', 'wormadamplantcloak'],
+      classification: 'Bagworm Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/wormadam.mp3',
+      respelling: 'WURR-mah-dam',
+      ipa: '/ˈwʌrmɑːdæm/'
     }
   ],
   [
     'wormadamsandy',
     {
       abilities: { first: 'anticipation', hidden: 'overcoat' },
-      baseSpecies: 'Wormadam',
+      baseSpecies: 'wormadam',
       baseStats: { hp: 60, atk: 79, def: 105, spa: 59, spd: 85, spe: 36 },
       catchRate: { base: 45, percentageWithOrdinaryPokeballAtFullHealth: '11.9%' },
       color: 'Brown',
@@ -646,14 +786,17 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'wormadam-sandy',
       types: [TypesEnum.Bug, TypesEnum.Ground],
       weightkg: 6.5,
-      aliases: ['wormadamg', 'wormadamground', 'wormadamsandycloak']
+      aliases: ['wormadamg', 'wormadamground', 'wormadamsandycloak'],
+      cry: 'https://play.pokemonshowdown.com/audio/cries/wormadam.mp3',
+      respelling: 'WURR-mah-dam',
+      ipa: '/ˈwʌrmɑːdæm/'
     }
   ],
   [
     'wormadamtrash',
     {
       abilities: { first: 'anticipation', hidden: 'overcoat' },
-      baseSpecies: 'Wormadam',
+      baseSpecies: 'wormadam',
       baseStats: { hp: 60, atk: 69, def: 95, spa: 69, spd: 95, spe: 36 },
       catchRate: { base: 45, percentageWithOrdinaryPokeballAtFullHealth: '11.9%' },
       color: 'Red',
@@ -673,7 +816,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'wormadam-trash',
       types: [TypesEnum.Bug, TypesEnum.Steel],
       weightkg: 6.5,
-      aliases: ['wormadams', 'wormadamsteel', 'wormadamtrashcloak']
+      aliases: ['wormadams', 'wormadamsteel', 'wormadamtrashcloak'],
+      cry: 'https://play.pokemonshowdown.com/audio/cries/wormadam.mp3',
+      respelling: 'WURR-mah-dam',
+      ipa: '/ˈwʌrmɑːdæm/'
     }
   ],
   [
@@ -696,7 +842,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'mothim',
       types: [TypesEnum.Bug, TypesEnum.Flying],
       weightkg: 23.3,
-      aliases: ['gaameiru']
+      aliases: ['gaameiru'],
+      classification: 'Moth Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/mothim.mp3',
+      respelling: 'MAH-thum',
+      ipa: '/ˈmɑːθəm/'
     }
   ],
   [
@@ -704,7 +854,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
     {
       abilities: { first: 'honeygather', hidden: 'hustle' },
       baseStats: { hp: 30, atk: 30, def: 42, spa: 30, spd: 42, spe: 70 },
-      catchRate: { base: 120, percentageWithOrdinaryPokeballAtFullHealth: '24.9%' },
+      catchRate: {
+        base: 120,
+        percentageWithOrdinaryPokeballAtFullHealth: '24.9%'
+      },
       color: 'Yellow',
       eggGroups: ['Bug'],
       evYields: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 1 },
@@ -718,7 +871,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'combee',
       types: [TypesEnum.Bug, TypesEnum.Flying],
       weightkg: 5.5,
-      aliases: ['mitsuhanii']
+      aliases: ['mitsuhanii'],
+      classification: 'Tiny Bee Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/combee.mp3',
+      respelling: 'COHM-bee',
+      ipa: '/ˈkoʊmbiː/'
     }
   ],
   [
@@ -741,7 +898,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'vespiquen',
       types: [TypesEnum.Bug, TypesEnum.Flying],
       weightkg: 38.5,
-      aliases: ['biikuin']
+      aliases: ['biikuin'],
+      classification: 'Beehive Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/vespiquen.mp3',
+      respelling: 'VES-pa-kwen',
+      ipa: '/ˈvɛspækwɛn/'
     }
   ],
   [
@@ -749,7 +910,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
     {
       abilities: { first: 'runaway', second: 'pickup', hidden: 'voltabsorb' },
       baseStats: { hp: 60, atk: 45, def: 70, spa: 45, spd: 90, spe: 95 },
-      catchRate: { base: 200, percentageWithOrdinaryPokeballAtFullHealth: '36.6%' },
+      catchRate: {
+        base: 200,
+        percentageWithOrdinaryPokeballAtFullHealth: '36.6%'
+      },
       color: 'White',
       eggGroups: ['Field', 'Fairy'],
       evYields: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 1 },
@@ -761,7 +925,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       num: 417,
       species: 'pachirisu',
       types: [TypesEnum.Electric],
-      weightkg: 3.9
+      weightkg: 3.9,
+      classification: 'EleSquirrel Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/pachirisu.mp3',
+      respelling: 'patch-ee-REE-su',
+      ipa: '/pætʃiːˈriːsuː/'
     }
   ],
   [
@@ -769,7 +937,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
     {
       abilities: { first: 'swiftswim', hidden: 'waterveil' },
       baseStats: { hp: 55, atk: 65, def: 35, spa: 60, spd: 30, spe: 85 },
-      catchRate: { base: 190, percentageWithOrdinaryPokeballAtFullHealth: '35.2%' },
+      catchRate: {
+        base: 190,
+        percentageWithOrdinaryPokeballAtFullHealth: '35.2%'
+      },
       color: 'Brown',
       eggGroups: ['Water 1', 'Field'],
       evYields: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 1 },
@@ -783,7 +954,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'buizel',
       types: [TypesEnum.Water],
       weightkg: 29.5,
-      aliases: ['buizeru']
+      aliases: ['buizeru'],
+      classification: 'Sea Weasel Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/buizel.mp3',
+      respelling: 'BWEE-zull',
+      ipa: '/ˈbwiːzəl/'
     }
   ],
   [
@@ -806,7 +981,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'floatzel',
       types: [TypesEnum.Water],
       weightkg: 33.5,
-      aliases: ['furoozeru']
+      aliases: ['furoozeru'],
+      classification: 'Sea Weasel Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/floatzel.mp3',
+      respelling: 'FLOAT-zull',
+      ipa: '/ˈfloʊtzəl/'
     }
   ],
   [
@@ -814,7 +993,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
     {
       abilities: { first: 'chlorophyll' },
       baseStats: { hp: 45, atk: 35, def: 45, spa: 62, spd: 53, spe: 35 },
-      catchRate: { base: 190, percentageWithOrdinaryPokeballAtFullHealth: '35.2%' },
+      catchRate: {
+        base: 190,
+        percentageWithOrdinaryPokeballAtFullHealth: '35.2%'
+      },
       color: 'Pink',
       eggGroups: ['Fairy', 'Grass'],
       evYields: { hp: 0, atk: 0, def: 0, spa: 1, spd: 0, spe: 0 },
@@ -828,7 +1010,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'cherubi',
       types: [TypesEnum.Grass],
       weightkg: 3.3,
-      aliases: ['cherinbo']
+      aliases: ['cherinbo'],
+      classification: 'Cherry Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/cherubi.mp3',
+      respelling: 'chuh-ROO-bee',
+      ipa: '/tʃəˈruːbiː/'
     }
   ],
   [
@@ -853,14 +1039,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'cherrim',
       types: [TypesEnum.Grass],
       weightkg: 9.3,
-      aliases: ['cherimu', 'cherrimo', 'cherrimovercast']
+      aliases: ['cherimu', 'cherrimo', 'cherrimovercast'],
+      classification: 'Blossom Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/cherrim.mp3',
+      respelling: 'chuh-RIM',
+      ipa: '/tʃəˈrɪm/'
     }
   ],
   [
     'cherrimsunshine',
     {
       abilities: { first: 'flowergift' },
-      baseSpecies: 'Cherrim',
+      baseSpecies: 'cherrim',
       baseStats: { hp: 70, atk: 60, def: 70, spa: 87, spd: 78, spe: 85 },
       catchRate: { base: 75, percentageWithOrdinaryPokeballAtFullHealth: '17.5%' },
       color: 'Pink',
@@ -880,16 +1070,26 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'cherrim-sunshine',
       types: [TypesEnum.Grass],
       weightkg: 9.3,
-      aliases: ['cherrims', 'cherrimsunny']
+      aliases: ['cherrims', 'cherrimsunny'],
+      cry: 'https://play.pokemonshowdown.com/audio/cries/cherrim.mp3',
+      respelling: 'chuh-RIM',
+      ipa: '/tʃəˈrɪm/'
     }
   ],
   [
     'shellos',
     {
-      abilities: { first: 'stickyhold', second: 'stormdrain', hidden: 'sandforce' },
+      abilities: {
+        first: 'stickyhold',
+        second: 'stormdrain',
+        hidden: 'sandforce'
+      },
       baseForme: 'West',
       baseStats: { hp: 76, atk: 48, def: 48, spa: 57, spd: 62, spe: 34 },
-      catchRate: { base: 190, percentageWithOrdinaryPokeballAtFullHealth: '35.2%' },
+      catchRate: {
+        base: 190,
+        percentageWithOrdinaryPokeballAtFullHealth: '35.2%'
+      },
       color: 'Purple',
       cosmeticFormes: ['Shellos-East'],
       eggGroups: ['Water 1', 'Amorphous'],
@@ -904,13 +1104,21 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'shellos',
       types: [TypesEnum.Water],
       weightkg: 6.3,
-      aliases: ['karanakushi', 'shelloseast', 'shelloswest']
+      aliases: ['karanakushi', 'shelloseast', 'shelloswest'],
+      classification: 'Sea Slug Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/shellos.mp3',
+      respelling: 'SHELL-oss',
+      ipa: '/ˈʃɛlɒs/'
     }
   ],
   [
     'gastrodon',
     {
-      abilities: { first: 'stickyhold', second: 'stormdrain', hidden: 'sandforce' },
+      abilities: {
+        first: 'stickyhold',
+        second: 'stormdrain',
+        hidden: 'sandforce'
+      },
       baseForme: 'West',
       baseStats: { hp: 111, atk: 83, def: 68, spa: 92, spd: 82, spe: 39 },
       catchRate: { base: 75, percentageWithOrdinaryPokeballAtFullHealth: '17.5%' },
@@ -929,7 +1137,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'gastrodon',
       types: [TypesEnum.Water, TypesEnum.Ground],
       weightkg: 29.9,
-      aliases: ['gastrodone', 'gastrodoneast', 'gastrodoneastsea', 'gastrodonw', 'gastrodonwest', 'gastrodonwestsea', 'toritodon']
+      aliases: ['gastrodone', 'gastrodoneast', 'gastrodoneastsea', 'gastrodonw', 'gastrodonwest', 'gastrodonwestsea', 'toritodon'],
+      classification: 'Sea Slug Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/gastrodon.mp3',
+      respelling: 'GAS-tro-donn',
+      ipa: '/ˈɡæstroʊdɒn/'
     }
   ],
   [
@@ -952,7 +1164,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'ambipom',
       types: [TypesEnum.Normal],
       weightkg: 20.3,
-      aliases: ['eteboosu']
+      aliases: ['eteboosu'],
+      classification: 'Long Tail Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/ambipom.mp3',
+      respelling: 'AM-bih-pom',
+      ipa: '/ˈæmbɪpɒm/'
     }
   ],
   [
@@ -960,7 +1176,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
     {
       abilities: { first: 'aftermath', second: 'unburden', hidden: 'flareboost' },
       baseStats: { hp: 90, atk: 50, def: 34, spa: 60, spd: 44, spe: 70 },
-      catchRate: { base: 125, percentageWithOrdinaryPokeballAtFullHealth: '25.7%' },
+      catchRate: {
+        base: 125,
+        percentageWithOrdinaryPokeballAtFullHealth: '25.7%'
+      },
       color: 'Purple',
       eggGroups: ['Amorphous'],
       evYields: { hp: 1, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },
@@ -974,7 +1193,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'drifloon',
       types: [TypesEnum.Ghost, TypesEnum.Flying],
       weightkg: 1.2,
-      aliases: ['fuwante']
+      aliases: ['fuwante'],
+      classification: 'Balloon Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/drifloon.mp3',
+      respelling: 'DRIFF-loon',
+      ipa: '/ˈdrɪfluːn/'
     }
   ],
   [
@@ -997,7 +1220,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'drifblim',
       types: [TypesEnum.Ghost, TypesEnum.Flying],
       weightkg: 15,
-      aliases: ['fuwaraido']
+      aliases: ['fuwaraido'],
+      classification: 'Blimp Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/drifblim.mp3',
+      respelling: 'DRIFF-blimm',
+      ipa: '/ˈdrɪfblɪm/'
     }
   ],
   [
@@ -1005,7 +1232,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
     {
       abilities: { first: 'runaway', second: 'klutz', hidden: 'limber' },
       baseStats: { hp: 55, atk: 66, def: 44, spa: 44, spd: 56, spe: 85 },
-      catchRate: { base: 190, percentageWithOrdinaryPokeballAtFullHealth: '35.2%' },
+      catchRate: {
+        base: 190,
+        percentageWithOrdinaryPokeballAtFullHealth: '35.2%'
+      },
       color: 'Brown',
       eggGroups: ['Field', 'Human-Like'],
       evYields: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 1 },
@@ -1019,7 +1249,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'buneary',
       types: [TypesEnum.Normal],
       weightkg: 5.5,
-      aliases: ['mimiroru']
+      aliases: ['mimiroru'],
+      classification: 'Rabbit Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/buneary.mp3',
+      respelling: 'buh-NEER-ree',
+      ipa: '/bəˈnɪəriː/'
     }
   ],
   [
@@ -1043,14 +1277,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'lopunny',
       types: [TypesEnum.Normal],
       weightkg: 33.3,
-      aliases: ['mimiroppu']
+      aliases: ['mimiroppu'],
+      classification: 'Rabbit Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/lopunny.mp3',
+      respelling: 'LAH-puh-nee',
+      ipa: '/ˈlɑːpəniː/'
     }
   ],
   [
     'lopunnymega',
     {
       abilities: { first: 'scrappy' },
-      baseSpecies: 'Lopunny',
+      baseSpecies: 'lopunny',
       baseStats: { hp: 65, atk: 136, def: 94, spa: 54, spd: 96, spe: 135 },
       catchRate: { base: 60, percentageWithOrdinaryPokeballAtFullHealth: '14.8%' },
       color: 'Brown',
@@ -1068,7 +1306,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'lopunny-mega',
       types: [TypesEnum.Normal, TypesEnum.Fighting],
       weightkg: 28.3,
-      aliases: ['megabunny', 'megalop']
+      aliases: ['megabunny', 'megalop'],
+      cry: 'https://play.pokemonshowdown.com/audio/cries/lopunny-mega.mp3',
+      respelling: 'LAH-puh-nee',
+      ipa: '/ˈlɑːpəniː/'
     }
   ],
   [
@@ -1091,7 +1332,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'mismagius',
       types: [TypesEnum.Ghost],
       weightkg: 4.4,
-      aliases: ['muumaaji']
+      aliases: ['muumaaji'],
+      classification: 'Magical Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/mismagius.mp3',
+      respelling: 'mis-MAG-ee-us',
+      ipa: '/mɪsˈmæɡiːʌs/'
     }
   ],
   [
@@ -1114,7 +1359,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'honchkrow',
       types: [TypesEnum.Dark, TypesEnum.Flying],
       weightkg: 27.3,
-      aliases: ['donkarasu', 'honch']
+      aliases: ['donkarasu', 'honch'],
+      classification: 'Big Boss Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/honchkrow.mp3',
+      respelling: 'HONCH-krow',
+      ipa: '/ˈhɒntʃkroʊ/'
     }
   ],
   [
@@ -1122,7 +1371,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
     {
       abilities: { first: 'limber', second: 'owntempo', hidden: 'keeneye' },
       baseStats: { hp: 49, atk: 55, def: 42, spa: 42, spd: 37, spe: 85 },
-      catchRate: { base: 190, percentageWithOrdinaryPokeballAtFullHealth: '35.2%' },
+      catchRate: {
+        base: 190,
+        percentageWithOrdinaryPokeballAtFullHealth: '35.2%'
+      },
       color: 'Gray',
       eggGroups: ['Field'],
       evYields: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 1 },
@@ -1136,7 +1388,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'glameow',
       types: [TypesEnum.Normal],
       weightkg: 3.9,
-      aliases: ['nyarumaa']
+      aliases: ['nyarumaa'],
+      classification: 'Catty Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/glameow.mp3',
+      respelling: 'GLAM-meow',
+      ipa: '/ˈɡlæmjaʊ/'
     }
   ],
   [
@@ -1159,7 +1415,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'purugly',
       types: [TypesEnum.Normal],
       weightkg: 43.8,
-      aliases: ['bunyatto']
+      aliases: ['bunyatto'],
+      classification: 'Tiger Cat Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/purugly.mp3',
+      respelling: 'prr-UG-lee',
+      ipa: '/pərˈʌɡliː/'
     }
   ],
   [
@@ -1167,7 +1427,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
     {
       abilities: { first: 'levitate' },
       baseStats: { hp: 45, atk: 30, def: 50, spa: 65, spd: 50, spe: 45 },
-      catchRate: { base: 120, percentageWithOrdinaryPokeballAtFullHealth: '24.9%' },
+      catchRate: {
+        base: 120,
+        percentageWithOrdinaryPokeballAtFullHealth: '24.9%'
+      },
       color: 'Yellow',
       eggGroups: ['Undiscovered'],
       evYields: { hp: 0, atk: 0, def: 0, spa: 1, spd: 0, spe: 0 },
@@ -1181,7 +1444,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'chingling',
       types: [TypesEnum.Psychic],
       weightkg: 0.6,
-      aliases: ['riishan']
+      aliases: ['riishan'],
+      classification: 'Bell Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/chingling.mp3',
+      respelling: 'CHING-ling',
+      ipa: '/ˈtʃɪŋlɪŋ/'
     }
   ],
   [
@@ -1189,7 +1456,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
     {
       abilities: { first: 'stench', second: 'aftermath', hidden: 'keeneye' },
       baseStats: { hp: 63, atk: 63, def: 47, spa: 41, spd: 41, spe: 74 },
-      catchRate: { base: 225, percentageWithOrdinaryPokeballAtFullHealth: '39.9%' },
+      catchRate: {
+        base: 225,
+        percentageWithOrdinaryPokeballAtFullHealth: '39.9%'
+      },
       color: 'Purple',
       eggGroups: ['Field'],
       evYields: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 1 },
@@ -1203,7 +1473,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'stunky',
       types: [TypesEnum.Poison, TypesEnum.Dark],
       weightkg: 19.2,
-      aliases: ['sukanpuu']
+      aliases: ['sukanpuu'],
+      classification: 'Skunk Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/stunky.mp3',
+      respelling: 'STUNK-ee',
+      ipa: '/ˈstʌŋkiː/'
     }
   ],
   [
@@ -1226,7 +1500,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'skuntank',
       types: [TypesEnum.Poison, TypesEnum.Dark],
       weightkg: 38,
-      aliases: ['sukatanku']
+      aliases: ['sukatanku'],
+      classification: 'Skunk Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/skuntank.mp3',
+      respelling: 'SKUN-tank',
+      ipa: '/ˈskʌntæŋk/'
     }
   ],
   [
@@ -1234,7 +1512,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
     {
       abilities: { first: 'levitate', second: 'heatproof', hidden: 'heavymetal' },
       baseStats: { hp: 57, atk: 24, def: 86, spa: 24, spd: 86, spe: 23 },
-      catchRate: { base: 255, percentageWithOrdinaryPokeballAtFullHealth: '43.9%' },
+      catchRate: {
+        base: 255,
+        percentageWithOrdinaryPokeballAtFullHealth: '43.9%'
+      },
       color: 'Green',
       eggGroups: ['Mineral'],
       evYields: { hp: 0, atk: 0, def: 1, spa: 0, spd: 0, spe: 0 },
@@ -1248,7 +1529,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'bronzor',
       types: [TypesEnum.Steel, TypesEnum.Psychic],
       weightkg: 60.5,
-      aliases: ['doomiraa']
+      aliases: ['doomiraa'],
+      classification: 'Bronze Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/bronzor.mp3',
+      respelling: 'BRAWN-zor',
+      ipa: '/ˈbrɔːnzɔːr/'
     }
   ],
   [
@@ -1271,7 +1556,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'bronzong',
       types: [TypesEnum.Steel, TypesEnum.Psychic],
       weightkg: 187,
-      aliases: ['dootakun', 'zong']
+      aliases: ['dootakun', 'zong'],
+      classification: 'Bronze Bell Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/bronzong.mp3',
+      respelling: 'brawn-ZONG',
+      ipa: '/brɔːnˈzɒŋ/'
     }
   ],
   [
@@ -1279,7 +1568,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
     {
       abilities: { first: 'sturdy', second: 'rockhead', hidden: 'rattled' },
       baseStats: { hp: 50, atk: 80, def: 95, spa: 10, spd: 45, spe: 10 },
-      catchRate: { base: 255, percentageWithOrdinaryPokeballAtFullHealth: '43.9%' },
+      catchRate: {
+        base: 255,
+        percentageWithOrdinaryPokeballAtFullHealth: '43.9%'
+      },
       color: 'Brown',
       eggGroups: ['Undiscovered'],
       evYields: { hp: 0, atk: 0, def: 1, spa: 0, spd: 0, spe: 0 },
@@ -1293,7 +1585,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'bonsly',
       types: [TypesEnum.Rock],
       weightkg: 15,
-      aliases: ['usohachi']
+      aliases: ['usohachi'],
+      classification: 'Bonsai Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/bonsly.mp3',
+      respelling: 'BON-sly',
+      ipa: '/ˈbɒnslaɪ/'
     }
   ],
   [
@@ -1301,7 +1597,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
     {
       abilities: { first: 'soundproof', second: 'filter', hidden: 'technician' },
       baseStats: { hp: 20, atk: 25, def: 45, spa: 70, spd: 90, spe: 60 },
-      catchRate: { base: 145, percentageWithOrdinaryPokeballAtFullHealth: '28.7%' },
+      catchRate: {
+        base: 145,
+        percentageWithOrdinaryPokeballAtFullHealth: '28.7%'
+      },
       color: 'Pink',
       eggGroups: ['Undiscovered'],
       evYields: { hp: 0, atk: 0, def: 0, spa: 0, spd: 1, spe: 0 },
@@ -1313,17 +1612,27 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       minimumHatchTime: 6425,
       num: 439,
       species: 'Mime Jr.',
+      specialBulbapediaUrl: 'Mime_Jr.',
       types: [TypesEnum.Psychic, TypesEnum.Fairy],
       weightkg: 13,
-      aliases: ['manene', 'mime jr.', 'mime jr', 'mime junior']
+      aliases: ['manene', 'mime jr.', 'mime jr', 'mime junior'],
+      classification: 'Mime Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/mimejr.mp3'
     }
   ],
   [
     'happiny',
     {
-      abilities: { first: 'naturalcure', second: 'serenegrace', hidden: 'friendguard' },
+      abilities: {
+        first: 'naturalcure',
+        second: 'serenegrace',
+        hidden: 'friendguard'
+      },
       baseStats: { hp: 100, atk: 5, def: 5, spa: 15, spd: 65, spe: 30 },
-      catchRate: { base: 130, percentageWithOrdinaryPokeballAtFullHealth: '26.5%' },
+      catchRate: {
+        base: 130,
+        percentageWithOrdinaryPokeballAtFullHealth: '26.5%'
+      },
       color: 'Pink',
       eggGroups: ['Undiscovered'],
       evYields: { hp: 1, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },
@@ -1337,7 +1646,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'happiny',
       types: [TypesEnum.Normal],
       weightkg: 24.4,
-      aliases: ['pinpuku']
+      aliases: ['pinpuku'],
+      classification: 'Playhouse Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/happiny.mp3',
+      respelling: 'hap-PEE-nee',
+      ipa: '/hæpˈpiːniː/'
     }
   ],
   [
@@ -1358,7 +1671,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'chatot',
       types: [TypesEnum.Normal, TypesEnum.Flying],
       weightkg: 1.9,
-      aliases: ['perappu']
+      aliases: ['perappu'],
+      classification: 'Music Note Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/chatot.mp3',
+      respelling: 'CHAH-tot',
+      ipa: '/ˈtʃɑːtɒt/'
     }
   ],
   [
@@ -1366,7 +1683,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
     {
       abilities: { first: 'pressure', hidden: 'infiltrator' },
       baseStats: { hp: 50, atk: 92, def: 108, spa: 92, spd: 108, spe: 35 },
-      catchRate: { base: 100, percentageWithOrdinaryPokeballAtFullHealth: '21.7%' },
+      catchRate: {
+        base: 100,
+        percentageWithOrdinaryPokeballAtFullHealth: '21.7%'
+      },
       color: 'Purple',
       eggGroups: ['Amorphous'],
       evYields: { hp: 0, atk: 0, def: 1, spa: 0, spd: 1, spe: 0 },
@@ -1379,7 +1699,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'spiritomb',
       types: [TypesEnum.Ghost, TypesEnum.Dark],
       weightkg: 108,
-      aliases: ['mikaruge']
+      aliases: ['mikaruge'],
+      classification: 'Forbidden Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/spiritomb.mp3',
+      respelling: 'SPIRI-toom',
+      ipa: '/ˈspɪrɪtuːm/'
     }
   ],
   [
@@ -1401,7 +1725,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'gible',
       types: [TypesEnum.Dragon, TypesEnum.Ground],
       weightkg: 20.5,
-      aliases: ['fukamaru']
+      aliases: ['fukamaru'],
+      classification: 'Land Shark Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/gible.mp3',
+      respelling: 'GIBB-bull',
+      ipa: '/ˈɡɪbʊl/'
     }
   ],
   [
@@ -1425,7 +1753,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'gabite',
       types: [TypesEnum.Dragon, TypesEnum.Ground],
       weightkg: 56,
-      aliases: ['gabaito']
+      aliases: ['gabaito'],
+      classification: 'Cave Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/gabite.mp3',
+      respelling: 'guh-BITE',
+      ipa: '/ɡəˈbaɪt/'
     }
   ],
   [
@@ -1449,14 +1781,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'garchomp',
       types: [TypesEnum.Dragon, TypesEnum.Ground],
       weightkg: 95,
-      aliases: ['chomp', 'gaburiasu']
+      aliases: ['chomp', 'gaburiasu'],
+      classification: 'Mach Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/garchomp.mp3',
+      respelling: 'gar-CHOMP',
+      ipa: '/ɡɑːrˈtʃɒmp/'
     }
   ],
   [
     'garchompmega',
     {
       abilities: { first: 'sandforce' },
-      baseSpecies: 'Garchomp',
+      baseSpecies: 'garchomp',
       baseStats: { hp: 108, atk: 170, def: 115, spa: 120, spd: 95, spe: 92 },
       catchRate: { base: 45, percentageWithOrdinaryPokeballAtFullHealth: '11.9%' },
       color: 'Blue',
@@ -1473,7 +1809,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       otherFormes: ['garchomp'],
       species: 'garchomp-mega',
       types: [TypesEnum.Dragon, TypesEnum.Ground],
-      weightkg: 95
+      weightkg: 95,
+      cry: 'https://play.pokemonshowdown.com/audio/cries/garchomp-mega.mp3',
+      respelling: 'gar-CHOMP',
+      ipa: '/ɡɑːrˈtʃɒmp/'
     }
   ],
   [
@@ -1495,7 +1834,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'munchlax',
       types: [TypesEnum.Normal],
       weightkg: 105,
-      aliases: ['gonbe']
+      aliases: ['gonbe'],
+      classification: 'Big Eater Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/munchlax.mp3',
+      respelling: 'MUNCH-lacks',
+      ipa: '/ˈmʌntʃlæks/'
     }
   ],
   [
@@ -1517,7 +1860,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'riolu',
       types: [TypesEnum.Fighting],
       weightkg: 20.2,
-      aliases: ['rioru']
+      aliases: ['rioru'],
+      classification: 'Emanation Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/riolu.mp3',
+      respelling: 'ree-OH-loo',
+      ipa: '/riːˈoʊluː/'
     }
   ],
   [
@@ -1541,14 +1888,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'lucario',
       types: [TypesEnum.Fighting, TypesEnum.Steel],
       weightkg: 54,
-      aliases: ['luke', 'rukario']
+      aliases: ['luke', 'rukario'],
+      classification: 'Aura Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/lucario.mp3',
+      respelling: 'loo-CAR-ee-oh',
+      ipa: '/luːˈkɑːriːoʊ/'
     }
   ],
   [
     'lucariomega',
     {
       abilities: { first: 'adaptability' },
-      baseSpecies: 'Lucario',
+      baseSpecies: 'lucario',
       baseStats: { hp: 70, atk: 145, def: 88, spa: 140, spd: 70, spe: 112 },
       catchRate: { base: 45, percentageWithOrdinaryPokeballAtFullHealth: '11.9%' },
       color: 'Blue',
@@ -1566,7 +1917,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'lucario-mega',
       types: [TypesEnum.Fighting, TypesEnum.Steel],
       weightkg: 57.5,
-      aliases: ['megaluc', 'megaluke']
+      aliases: ['megaluc', 'megaluke'],
+      cry: 'https://play.pokemonshowdown.com/audio/cries/lucario-mega.mp3',
+      respelling: 'loo-CAR-ee-oh',
+      ipa: '/luːˈkɑːriːoʊ/'
     }
   ],
   [
@@ -1588,7 +1942,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'hippopotas',
       types: [TypesEnum.Ground],
       weightkg: 49.5,
-      aliases: ['hipopotasu']
+      aliases: ['hipopotasu'],
+      classification: 'Hippo Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/hippopotas.mp3',
+      respelling: 'HIP-po-puh-TOSS',
+      ipa: '/ˌhɪpoʊpəˈtɒs/'
     }
   ],
   [
@@ -1611,7 +1969,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'hippowdon',
       types: [TypesEnum.Ground],
       weightkg: 300,
-      aliases: ['hippo', 'kabarudon']
+      aliases: ['hippo', 'kabarudon'],
+      classification: 'Heavyweight Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/hippowdon.mp3',
+      respelling: 'hip-POW-donn',
+      ipa: '/hɪpˈpaʊdɒn/'
     }
   ],
   [
@@ -1619,7 +1981,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
     {
       abilities: { first: 'battlearmor', second: 'sniper', hidden: 'keeneye' },
       baseStats: { hp: 40, atk: 50, def: 90, spa: 30, spd: 55, spe: 65 },
-      catchRate: { base: 120, percentageWithOrdinaryPokeballAtFullHealth: '24.9%' },
+      catchRate: {
+        base: 120,
+        percentageWithOrdinaryPokeballAtFullHealth: '24.9%'
+      },
       color: 'Purple',
       eggGroups: ['Bug', 'Water 3'],
       evYields: { hp: 0, atk: 0, def: 1, spa: 0, spd: 0, spe: 0 },
@@ -1633,7 +1998,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'skorupi',
       types: [TypesEnum.Poison, TypesEnum.Bug],
       weightkg: 12,
-      aliases: ['sukorupi']
+      aliases: ['sukorupi'],
+      classification: 'Scorpion Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/skorupi.mp3',
+      respelling: 'sco-ROO-pee',
+      ipa: '/skoʊˈruːpiː/'
     }
   ],
   [
@@ -1656,13 +2025,21 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'drapion',
       types: [TypesEnum.Poison, TypesEnum.Dark],
       weightkg: 61.5,
-      aliases: ['dorapion', 'snips']
+      aliases: ['dorapion', 'snips'],
+      classification: 'Ogre Scorpion Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/drapion.mp3',
+      respelling: 'DRAP-pee-on',
+      ipa: '/ˈdræpiːɒn/'
     }
   ],
   [
     'croagunk',
     {
-      abilities: { first: 'anticipation', second: 'dryskin', hidden: 'poisontouch' },
+      abilities: {
+        first: 'anticipation',
+        second: 'dryskin',
+        hidden: 'poisontouch'
+      },
       baseStats: { hp: 48, atk: 61, def: 40, spa: 61, spd: 40, spe: 50 },
       catchRate: { base: 140, percentageWithOrdinaryPokeballAtFullHealth: '28%' },
       color: 'Blue',
@@ -1678,13 +2055,21 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'croagunk',
       types: [TypesEnum.Poison, TypesEnum.Fighting],
       weightkg: 23,
-      aliases: ['guregguru']
+      aliases: ['guregguru'],
+      classification: 'Toxic Mouth Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/croagunk.mp3',
+      respelling: 'CROW-gunk',
+      ipa: '/ˈkroʊɡʌŋk/'
     }
   ],
   [
     'toxicroak',
     {
-      abilities: { first: 'anticipation', second: 'dryskin', hidden: 'poisontouch' },
+      abilities: {
+        first: 'anticipation',
+        second: 'dryskin',
+        hidden: 'poisontouch'
+      },
       baseStats: { hp: 83, atk: 106, def: 65, spa: 86, spd: 65, spe: 85 },
       catchRate: { base: 75, percentageWithOrdinaryPokeballAtFullHealth: '17.5%' },
       color: 'Blue',
@@ -1701,7 +2086,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'toxicroak',
       types: [TypesEnum.Poison, TypesEnum.Fighting],
       weightkg: 44.4,
-      aliases: ['dokuroggu']
+      aliases: ['dokuroggu'],
+      classification: 'Toxic Mouth Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/toxicroak.mp3',
+      respelling: 'TOCKS-eh-croak',
+      ipa: '/ˈtɒksɛkroʊk/'
     }
   ],
   [
@@ -1709,7 +2098,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
     {
       abilities: { first: 'levitate' },
       baseStats: { hp: 74, atk: 100, def: 72, spa: 90, spd: 72, spe: 46 },
-      catchRate: { base: 200, percentageWithOrdinaryPokeballAtFullHealth: '36.6%' },
+      catchRate: {
+        base: 200,
+        percentageWithOrdinaryPokeballAtFullHealth: '36.6%'
+      },
       color: 'Green',
       eggGroups: ['Grass'],
       evYields: { hp: 0, atk: 2, def: 0, spa: 0, spd: 0, spe: 0 },
@@ -1722,7 +2114,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'carnivine',
       types: [TypesEnum.Grass],
       weightkg: 27,
-      aliases: ['masukippa']
+      aliases: ['masukippa'],
+      classification: 'Bug Catcher Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/carnivine.mp3',
+      respelling: 'CAR-nuh-vine',
+      ipa: '/ˈkɑːrnəvaɪn/'
     }
   ],
   [
@@ -1730,7 +2126,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
     {
       abilities: { first: 'swiftswim', second: 'stormdrain', hidden: 'waterveil' },
       baseStats: { hp: 49, atk: 49, def: 56, spa: 49, spd: 61, spe: 66 },
-      catchRate: { base: 190, percentageWithOrdinaryPokeballAtFullHealth: '35.2%' },
+      catchRate: {
+        base: 190,
+        percentageWithOrdinaryPokeballAtFullHealth: '35.2%'
+      },
       color: 'Blue',
       eggGroups: ['Water 2'],
       evYields: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 1 },
@@ -1744,7 +2143,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'finneon',
       types: [TypesEnum.Water],
       weightkg: 7,
-      aliases: ['keikouo']
+      aliases: ['keikouo'],
+      classification: 'Wing Fish Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/finneon.mp3',
+      respelling: 'FINN-ee-onn',
+      ipa: '/ˈfɪniːɒn/'
     }
   ],
   [
@@ -1767,13 +2170,21 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'lumineon',
       types: [TypesEnum.Water],
       weightkg: 24,
-      aliases: ['neoranto']
+      aliases: ['neoranto'],
+      classification: 'Neon Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/lumineon.mp3',
+      respelling: 'loo-MIN-ee-onn',
+      ipa: '/luːˈmɪniːɒn/'
     }
   ],
   [
     'mantyke',
     {
-      abilities: { first: 'swiftswim', second: 'waterabsorb', hidden: 'waterveil' },
+      abilities: {
+        first: 'swiftswim',
+        second: 'waterabsorb',
+        hidden: 'waterveil'
+      },
       baseStats: { hp: 45, atk: 20, def: 50, spa: 60, spd: 120, spe: 50 },
       catchRate: { base: 25, percentageWithOrdinaryPokeballAtFullHealth: '7.7%' },
       color: 'Blue',
@@ -1789,7 +2200,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'mantyke',
       types: [TypesEnum.Water, TypesEnum.Flying],
       weightkg: 65,
-      aliases: ['tamanta']
+      aliases: ['tamanta'],
+      classification: 'Kite Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/mantyke.mp3',
+      respelling: 'MAN-tike',
+      ipa: '/ˈmæntaɪk/'
     }
   ],
   [
@@ -1797,7 +2212,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
     {
       abilities: { first: 'snowwarning', hidden: 'soundproof' },
       baseStats: { hp: 60, atk: 62, def: 50, spa: 62, spd: 60, spe: 40 },
-      catchRate: { base: 120, percentageWithOrdinaryPokeballAtFullHealth: '24.9%' },
+      catchRate: {
+        base: 120,
+        percentageWithOrdinaryPokeballAtFullHealth: '24.9%'
+      },
       color: 'White',
       eggGroups: ['Monster', 'Grass'],
       evYields: { hp: 0, atk: 1, def: 0, spa: 0, spd: 0, spe: 0 },
@@ -1811,7 +2229,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'snover',
       types: [TypesEnum.Grass, TypesEnum.Ice],
       weightkg: 50.5,
-      aliases: ['yukikaburi']
+      aliases: ['yukikaburi'],
+      classification: 'Frost Tree Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/snover.mp3',
+      respelling: 'SNOW-vurr',
+      ipa: '/ˈsnoʊvʌr/'
     }
   ],
   [
@@ -1835,14 +2257,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'abomasnow',
       types: [TypesEnum.Grass, TypesEnum.Ice],
       weightkg: 135.5,
-      aliases: ['aboma', 'obama', 'yukinooo']
+      aliases: ['aboma', 'obama', 'yukinooo'],
+      classification: 'Frost Tree Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/abomasnow.mp3',
+      respelling: 'uh-BOM-a-snow',
+      ipa: '/əˈbɒmæsnoʊ/'
     }
   ],
   [
     'abomasnowmega',
     {
       abilities: { first: 'snowwarning' },
-      baseSpecies: 'Abomasnow',
+      baseSpecies: 'abomasnow',
       baseStats: { hp: 90, atk: 132, def: 105, spa: 132, spd: 105, spe: 30 },
       catchRate: { base: 60, percentageWithOrdinaryPokeballAtFullHealth: '14.8%' },
       color: 'White',
@@ -1860,7 +2286,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'abomasnow-mega',
       types: [TypesEnum.Grass, TypesEnum.Ice],
       weightkg: 185,
-      aliases: ['megaobama', 'megasnow']
+      aliases: ['megaobama', 'megasnow'],
+      cry: 'https://play.pokemonshowdown.com/audio/cries/abomasnow-mega.mp3',
+      respelling: 'uh-BOM-a-snow',
+      ipa: '/əˈbɒmæsnoʊ/'
     }
   ],
   [
@@ -1872,7 +2301,7 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       color: 'Black',
       eggGroups: ['Field'],
       evYields: { hp: 0, atk: 1, def: 0, spa: 0, spd: 0, spe: 1 },
-      evoLevel: 'Hold Razor Claw Nighttime',
+      evoLevel: 'Hold Razor Claw Nighttime then level up',
       genderRatio: { male: '50%', female: '50%' },
       heightm: 1.1,
       isEggObtainable: true,
@@ -1883,7 +2312,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'weavile',
       types: [TypesEnum.Dark, TypesEnum.Ice],
       weightkg: 34,
-      aliases: ['manyuura']
+      aliases: ['manyuura'],
+      classification: 'Sharp Claw Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/weavile.mp3',
+      respelling: 'WEE-vile',
+      ipa: '/ˈwiːvaɪl/'
     }
   ],
   [
@@ -1906,7 +2339,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'magnezone',
       types: [TypesEnum.Electric, TypesEnum.Steel],
       weightkg: 180,
-      aliases: ['jibakoiru']
+      aliases: ['jibakoiru'],
+      classification: 'Magnet Area Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/magnezone.mp3',
+      respelling: 'MAG-nuh-zone',
+      ipa: '/ˈmæɡnəzoʊn/'
     }
   ],
   [
@@ -1929,13 +2366,21 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'lickilicky',
       types: [TypesEnum.Normal],
       weightkg: 140,
-      aliases: ['beroberuto']
+      aliases: ['beroberuto'],
+      classification: 'Licking Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/lickilicky.mp3',
+      respelling: 'LICK-ee-LICK-ee',
+      ipa: '/ˈlɪkiːˌlɪkiː/'
     }
   ],
   [
     'rhyperior',
     {
-      abilities: { first: 'lightningrod', second: 'solidrock', hidden: 'reckless' },
+      abilities: {
+        first: 'lightningrod',
+        second: 'solidrock',
+        hidden: 'reckless'
+      },
       baseStats: { hp: 115, atk: 140, def: 130, spa: 55, spd: 55, spe: 40 },
       catchRate: { base: 30, percentageWithOrdinaryPokeballAtFullHealth: '8.8%' },
       color: 'Gray',
@@ -1952,13 +2397,21 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'rhyperior',
       types: [TypesEnum.Ground, TypesEnum.Rock],
       weightkg: 282.8,
-      aliases: ['dosaidon']
+      aliases: ['dosaidon'],
+      classification: 'Drill Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/rhyperior.mp3',
+      respelling: 'RYE-peer-ee-urr',
+      ipa: '/ˈraɪpɪəriːʌr/'
     }
   ],
   [
     'tangrowth',
     {
-      abilities: { first: 'chlorophyll', second: 'leafguard', hidden: 'regenerator' },
+      abilities: {
+        first: 'chlorophyll',
+        second: 'leafguard',
+        hidden: 'regenerator'
+      },
       baseStats: { hp: 100, atk: 100, def: 125, spa: 110, spd: 50, spe: 50 },
       catchRate: { base: 30, percentageWithOrdinaryPokeballAtFullHealth: '8.8%' },
       color: 'Blue',
@@ -1975,7 +2428,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'tangrowth',
       types: [TypesEnum.Grass],
       weightkg: 128.6,
-      aliases: ['mojanbo', 'tang']
+      aliases: ['mojanbo', 'tang'],
+      classification: 'Vine Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/tangrowth.mp3',
+      respelling: 'TANG-growth',
+      ipa: '/ˈtæŋɡroʊθ/'
     }
   ],
   [
@@ -1998,7 +2455,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'electivire',
       types: [TypesEnum.Electric],
       weightkg: 138.6,
-      aliases: ['erekiburu']
+      aliases: ['erekiburu'],
+      classification: 'Thunderbolt Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/electivire.mp3',
+      respelling: 'e-LECT-uh-vire',
+      ipa: '/ɪˈlɛktəvaɪər/'
     }
   ],
   [
@@ -2021,7 +2482,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'magmortar',
       types: [TypesEnum.Fire],
       weightkg: 68,
-      aliases: ['buubaan']
+      aliases: ['buubaan'],
+      classification: 'Blast Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/magmortar.mp3',
+      respelling: 'MAG-mor-tur',
+      ipa: '/ˈmæɡmɔːrtər/'
     }
   ],
   [
@@ -2044,7 +2509,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'togekiss',
       types: [TypesEnum.Fairy, TypesEnum.Flying],
       weightkg: 38,
-      aliases: ['togekissu']
+      aliases: ['togekissu'],
+      classification: 'Jubilee Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/togekiss.mp3',
+      respelling: 'TOE-geh-kiss',
+      ipa: '/ˈtoʊɡɛkɪs/'
     }
   ],
   [
@@ -2067,7 +2536,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'yanmega',
       types: [TypesEnum.Bug, TypesEnum.Flying],
       weightkg: 51.5,
-      aliases: ['megayanma']
+      aliases: ['megayanma'],
+      classification: 'Ogre Darner Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/yanmega.mp3',
+      respelling: 'YAN-meh-gah',
+      ipa: '/ˈjænmɛɡɑː/'
     }
   ],
   [
@@ -2090,7 +2563,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'leafeon',
       types: [TypesEnum.Grass],
       weightkg: 25.5,
-      aliases: ['riifia']
+      aliases: ['riifia'],
+      classification: 'Verdant Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/leafeon.mp3',
+      respelling: 'LEEF-ee-on',
+      ipa: '/ˈliːfiːɒn/'
     }
   ],
   [
@@ -2113,13 +2590,21 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'glaceon',
       types: [TypesEnum.Ice],
       weightkg: 25.9,
-      aliases: ['gureishia']
+      aliases: ['gureishia'],
+      classification: 'Fresh Snow Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/glaceon.mp3',
+      respelling: 'GLACE-ee-on',
+      ipa: '/ˈɡleɪsiːɒn/'
     }
   ],
   [
     'gliscor',
     {
-      abilities: { first: 'hypercutter', second: 'sandveil', hidden: 'poisonheal' },
+      abilities: {
+        first: 'hypercutter',
+        second: 'sandveil',
+        hidden: 'poisonheal'
+      },
       baseStats: { hp: 75, atk: 95, def: 125, spa: 45, spd: 75, spe: 95 },
       catchRate: { base: 30, percentageWithOrdinaryPokeballAtFullHealth: '8.8%' },
       color: 'Purple',
@@ -2136,7 +2621,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'gliscor',
       types: [TypesEnum.Ground, TypesEnum.Flying],
       weightkg: 42.5,
-      aliases: ['guraion']
+      aliases: ['guraion'],
+      classification: 'Fang Scorpion Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/gliscor.mp3',
+      respelling: 'GLY-skor',
+      ipa: '/ˈɡlaɪskɔːr/'
     }
   ],
   [
@@ -2159,7 +2648,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'mamoswine',
       types: [TypesEnum.Ice, TypesEnum.Ground],
       weightkg: 291,
-      aliases: ['mamo', 'manmuu']
+      aliases: ['mamo', 'manmuu'],
+      classification: 'Twin Tusk Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/mamoswine.mp3',
+      respelling: 'MAMO-swine',
+      ipa: '/ˈmæmoʊswaɪn/'
     }
   ],
   [
@@ -2183,13 +2676,15 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'porygon-z',
       types: [TypesEnum.Normal],
       weightkg: 34,
-      aliases: ['porigonz', 'poryz', 'pz']
+      aliases: ['porigonz', 'poryz', 'pz'],
+      classification: 'Virtual Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/porygonz.mp3'
     }
   ],
   [
     'gallade',
     {
-      abilities: { first: 'steadfast', hidden: 'justified' },
+      abilities: { first: 'steadfast', second: 'sharpness', hidden: 'justified' },
       baseStats: { hp: 68, atk: 125, def: 65, spa: 65, spd: 115, spe: 80 },
       catchRate: { base: 45, percentageWithOrdinaryPokeballAtFullHealth: '11.9%' },
       color: 'White',
@@ -2207,14 +2702,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'gallade',
       types: [TypesEnum.Psychic, TypesEnum.Fighting],
       weightkg: 52,
-      aliases: ['erureido']
+      aliases: ['erureido'],
+      classification: 'Blade Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/gallade.mp3',
+      respelling: 'GAL-ade',
+      ipa: '/ˈɡæleɪd/'
     }
   ],
   [
     'gallademega',
     {
       abilities: { first: 'innerfocus' },
-      baseSpecies: 'Gallade',
+      baseSpecies: 'gallade',
       baseStats: { hp: 68, atk: 165, def: 95, spa: 65, spd: 115, spe: 110 },
       catchRate: { base: 45, percentageWithOrdinaryPokeballAtFullHealth: '11.9%' },
       color: 'White',
@@ -2231,7 +2730,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       otherFormes: ['gallade'],
       species: 'gallade-mega',
       types: [TypesEnum.Psychic, TypesEnum.Fighting],
-      weightkg: 56.4
+      weightkg: 56.4,
+      cry: 'https://play.pokemonshowdown.com/audio/cries/gallade-mega.mp3',
+      respelling: 'GAL-ade',
+      ipa: '/ˈɡæleɪd/'
     }
   ],
   [
@@ -2254,7 +2756,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'probopass',
       types: [TypesEnum.Rock, TypesEnum.Steel],
       weightkg: 340,
-      aliases: ['dainoozu']
+      aliases: ['dainoozu'],
+      classification: 'Compass Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/probopass.mp3',
+      respelling: 'PRO-bo-pass',
+      ipa: '/ˈproʊboʊpæs/'
     }
   ],
   [
@@ -2277,7 +2783,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'dusknoir',
       types: [TypesEnum.Ghost],
       weightkg: 106.6,
-      aliases: ['yonowaaru']
+      aliases: ['yonowaaru'],
+      classification: 'Gripper Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/dusknoir.mp3',
+      respelling: 'DUSK-nwar',
+      ipa: '/ˈdʌsknwɑːr/'
     }
   ],
   [
@@ -2300,7 +2810,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'froslass',
       types: [TypesEnum.Ice, TypesEnum.Ghost],
       weightkg: 26.6,
-      aliases: ['yukimenoko']
+      aliases: ['yukimenoko'],
+      classification: 'Snow Land Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/froslass.mp3',
+      respelling: 'FROS-lass',
+      ipa: '/ˈfrɒslæs/'
     }
   ],
   [
@@ -2322,14 +2836,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'rotom',
       types: [TypesEnum.Electric, TypesEnum.Ghost],
       weightkg: 0.3,
-      aliases: ['rotomu']
+      aliases: ['rotomu'],
+      classification: 'Plasma Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/rotom.mp3',
+      respelling: 'ROW-tom',
+      ipa: '/ˈroʊtɒm/'
     }
   ],
   [
     'rotomheat',
     {
       abilities: { first: 'levitate' },
-      baseSpecies: 'Rotom',
+      baseSpecies: 'rotom',
       baseStats: { hp: 50, atk: 65, def: 107, spa: 105, spd: 107, spe: 86 },
       catchRate: { base: 45, percentageWithOrdinaryPokeballAtFullHealth: '11.9%' },
       color: 'Red',
@@ -2347,14 +2865,17 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'rotom-heat',
       types: [TypesEnum.Electric, TypesEnum.Fire],
       weightkg: 0.3,
-      aliases: ['rotomh']
+      aliases: ['rotomh'],
+      cry: 'https://play.pokemonshowdown.com/audio/cries/rotom.mp3',
+      respelling: 'ROW-tom',
+      ipa: '/ˈroʊtɒm/'
     }
   ],
   [
     'rotomwash',
     {
       abilities: { first: 'levitate' },
-      baseSpecies: 'Rotom',
+      baseSpecies: 'rotom',
       baseStats: { hp: 50, atk: 65, def: 107, spa: 105, spd: 107, spe: 86 },
       catchRate: { base: 45, percentageWithOrdinaryPokeballAtFullHealth: '11.9%' },
       color: 'Red',
@@ -2372,14 +2893,17 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'rotom-wash',
       types: [TypesEnum.Electric, TypesEnum.Water],
       weightkg: 0.3,
-      aliases: ['rotomw']
+      aliases: ['rotomw'],
+      cry: 'https://play.pokemonshowdown.com/audio/cries/rotom.mp3',
+      respelling: 'ROW-tom',
+      ipa: '/ˈroʊtɒm/'
     }
   ],
   [
     'rotomfrost',
     {
       abilities: { first: 'levitate' },
-      baseSpecies: 'Rotom',
+      baseSpecies: 'rotom',
       baseStats: { hp: 50, atk: 65, def: 107, spa: 105, spd: 107, spe: 86 },
       catchRate: { base: 45, percentageWithOrdinaryPokeballAtFullHealth: '11.9%' },
       color: 'Red',
@@ -2397,14 +2921,17 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'rotom-frost',
       types: [TypesEnum.Electric, TypesEnum.Ice],
       weightkg: 0.3,
-      aliases: ['rotomf']
+      aliases: ['rotomf'],
+      cry: 'https://play.pokemonshowdown.com/audio/cries/rotom.mp3',
+      respelling: 'ROW-tom',
+      ipa: '/ˈroʊtɒm/'
     }
   ],
   [
     'rotomfan',
     {
       abilities: { first: 'levitate' },
-      baseSpecies: 'Rotom',
+      baseSpecies: 'rotom',
       baseStats: { hp: 50, atk: 65, def: 107, spa: 105, spd: 107, spe: 86 },
       catchRate: { base: 45, percentageWithOrdinaryPokeballAtFullHealth: '11.9%' },
       color: 'Red',
@@ -2422,14 +2949,17 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'rotom-fan',
       types: [TypesEnum.Electric, TypesEnum.Flying],
       weightkg: 0.3,
-      aliases: ['rotoms', 'rotomspin']
+      aliases: ['rotoms', 'rotomspin'],
+      cry: 'https://play.pokemonshowdown.com/audio/cries/rotom.mp3',
+      respelling: 'ROW-tom',
+      ipa: '/ˈroʊtɒm/'
     }
   ],
   [
     'rotommow',
     {
       abilities: { first: 'levitate' },
-      baseSpecies: 'Rotom',
+      baseSpecies: 'rotom',
       baseStats: { hp: 50, atk: 65, def: 107, spa: 105, spd: 107, spe: 86 },
       catchRate: { base: 45, percentageWithOrdinaryPokeballAtFullHealth: '11.9%' },
       color: 'Red',
@@ -2447,7 +2977,10 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'rotom-mow',
       types: [TypesEnum.Electric, TypesEnum.Grass],
       weightkg: 0.3,
-      aliases: ['rotomc', 'rotomcut']
+      aliases: ['rotomc', 'rotomcut'],
+      cry: 'https://play.pokemonshowdown.com/audio/cries/rotom.mp3',
+      respelling: 'ROW-tom',
+      ipa: '/ˈroʊtɒm/'
     }
   ],
   [
@@ -2468,7 +3001,12 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'uxie',
       types: [TypesEnum.Psychic],
       weightkg: 0.3,
-      aliases: ['yukushii']
+      aliases: ['yukushii'],
+      legendary: true,
+      classification: 'Knowledge Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/uxie.mp3',
+      respelling: 'YUKE-see',
+      ipa: '/ˈjuːksiː/'
     }
   ],
   [
@@ -2489,7 +3027,12 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'mesprit',
       types: [TypesEnum.Psychic],
       weightkg: 0.3,
-      aliases: ['emuritto']
+      aliases: ['emuritto'],
+      legendary: true,
+      classification: 'Emotion Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/mesprit.mp3',
+      respelling: 'MES-prit',
+      ipa: '/ˈmɛsprɪt/'
     }
   ],
   [
@@ -2510,13 +3053,19 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'azelf',
       types: [TypesEnum.Psychic],
       weightkg: 0.3,
-      aliases: ['agunomu']
+      aliases: ['agunomu'],
+      legendary: true,
+      classification: 'Willpower Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/azelf.mp3',
+      respelling: 'AZ-elf',
+      ipa: '/ˈæʒɛlf/'
     }
   ],
   [
     'dialga',
     {
       abilities: { first: 'pressure', hidden: 'telepathy' },
+      baseForme: 'Normal',
       baseStats: { hp: 100, atk: 120, def: 120, spa: 150, spd: 100, spe: 90 },
       catchRate: { base: 3, percentageWithOrdinaryPokeballAtFullHealth: '1.6%' },
       color: 'White',
@@ -2532,13 +3081,19 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'dialga',
       types: [TypesEnum.Steel, TypesEnum.Dragon],
       weightkg: 683,
-      aliases: ['diaruga']
+      aliases: ['diaruga'],
+      legendary: true,
+      classification: 'Temporal Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/dialga.mp3',
+      respelling: 'dee-AL-guh',
+      ipa: '/diːˈælɡə/'
     }
   ],
   [
     'dialgaorigin',
     {
       abilities: { first: 'pressure', hidden: 'telepathy' },
+      baseSpecies: 'dialga',
       baseStats: { hp: 100, atk: 100, def: 120, spa: 150, spd: 120, spe: 90 },
       catchRate: { base: 3, percentageWithOrdinaryPokeballAtFullHealth: '1.6%' },
       color: 'White',
@@ -2556,14 +3111,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'dialga-origin',
       types: [TypesEnum.Steel, TypesEnum.Dragon],
       weightkg: 850,
-      aliases: ['origindialga', 'dialgao']
+      aliases: ['origindialga', 'dialgao'],
+      legendary: true,
+      cry: 'https://play.pokemonshowdown.com/audio/cries/dialga.mp3',
+      respelling: 'dee-AL-guh',
+      ipa: '/diːˈælɡə/'
     }
   ],
   [
     'palkia',
     {
       abilities: { first: 'pressure', hidden: 'telepathy' },
-      baseSpecies: 'Dialga',
+      baseForme: 'Normal',
       baseStats: { hp: 90, atk: 120, def: 100, spa: 150, spd: 120, spe: 100 },
       catchRate: { base: 3, percentageWithOrdinaryPokeballAtFullHealth: '1.6%' },
       color: 'Purple',
@@ -2579,14 +3138,19 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'palkia',
       types: [TypesEnum.Water, TypesEnum.Dragon],
       weightkg: 336,
-      aliases: ['parukia']
+      aliases: ['parukia'],
+      legendary: true,
+      classification: 'Spatial Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/palkia.mp3',
+      respelling: 'PAL-kee-uh',
+      ipa: '/ˈpælkiːə/'
     }
   ],
   [
     'palkiaorigin',
     {
       abilities: { first: 'pressure', hidden: 'telepathy' },
-      baseSpecies: 'Palkia',
+      baseSpecies: 'palkia',
       baseStats: { hp: 90, atk: 100, def: 100, spa: 150, spd: 120, spe: 120 },
       catchRate: { base: 3, percentageWithOrdinaryPokeballAtFullHealth: '1.6%' },
       color: 'Purple',
@@ -2604,7 +3168,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'palkia-origin',
       types: [TypesEnum.Water, TypesEnum.Dragon],
       weightkg: 660,
-      aliases: ['originpalkia', 'palkiao']
+      aliases: ['originpalkia', 'palkiao'],
+      legendary: true,
+      cry: 'https://play.pokemonshowdown.com/audio/cries/palkia.mp3',
+      respelling: 'PAL-kee-uh',
+      ipa: '/ˈpælkiːə/'
     }
   ],
   [
@@ -2625,7 +3193,12 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'heatran',
       types: [TypesEnum.Fire, TypesEnum.Steel],
       weightkg: 430,
-      aliases: ['hiidoran', 'tran']
+      aliases: ['hiidoran', 'tran'],
+      legendary: true,
+      classification: 'Lava Dome Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/heatran.mp3',
+      respelling: 'HEE-tran',
+      ipa: '/ˈhiːtræn/'
     }
   ],
   [
@@ -2646,7 +3219,12 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'regigigas',
       types: [TypesEnum.Normal],
       weightkg: 420,
-      aliases: ['rejigigasu']
+      aliases: ['rejigigasu'],
+      legendary: true,
+      classification: 'Colossal Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/regigigas.mp3',
+      respelling: 'REDGE-ee-gee-gus',
+      ipa: '/ˈrɛdʒiːɡiːɡʌs/'
     }
   ],
   [
@@ -2669,14 +3247,19 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'giratina',
       types: [TypesEnum.Ghost, TypesEnum.Dragon],
       weightkg: 750,
-      aliases: ['gira', 'girateina', 'giratinaa', 'giratinaaltered']
+      aliases: ['gira', 'girateina', 'giratinaa', 'giratinaaltered'],
+      legendary: true,
+      classification: 'Renegade Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/giratina.mp3',
+      respelling: 'gear-uh-TEE-na',
+      ipa: '/ɡɪərəˈtiːnæ/'
     }
   ],
   [
     'giratinaorigin',
     {
       abilities: { first: 'levitate' },
-      baseSpecies: 'Giratina',
+      baseSpecies: 'giratina',
       baseStats: { hp: 150, atk: 120, def: 100, spa: 120, spd: 100, spe: 90 },
       catchRate: { base: 3, percentageWithOrdinaryPokeballAtFullHealth: '1.6%' },
       color: 'Black',
@@ -2694,14 +3277,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'giratina-origin',
       types: [TypesEnum.Ghost, TypesEnum.Dragon],
       weightkg: 650,
-      aliases: ['origingiratina', 'girao', 'giratinao']
+      aliases: ['origingiratina', 'girao', 'giratinao'],
+      legendary: true,
+      cry: 'https://play.pokemonshowdown.com/audio/cries/giratina.mp3',
+      respelling: 'gear-uh-TEE-na',
+      ipa: '/ɡɪərəˈtiːnæ/'
     }
   ],
   [
     'cresselia',
     {
       abilities: { first: 'levitate' },
-      baseStats: { hp: 120, atk: 70, def: 120, spa: 75, spd: 130, spe: 85 },
+      baseStats: { hp: 120, atk: 70, def: 110, spa: 75, spd: 120, spe: 85 },
       catchRate: { base: 3, percentageWithOrdinaryPokeballAtFullHealth: '1.6%' },
       color: 'Yellow',
       eggGroups: ['Undiscovered'],
@@ -2715,7 +3302,12 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'cresselia',
       types: [TypesEnum.Psychic],
       weightkg: 85.6,
-      aliases: ['cress', 'kureseria']
+      aliases: ['cress', 'kureseria'],
+      legendary: true,
+      classification: 'Lunar Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/cresselia.mp3',
+      respelling: 'cres-SEL-ee-uh',
+      ipa: '/krɛˈsɛliːə/'
     }
   ],
   [
@@ -2736,7 +3328,12 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'phione',
       types: [TypesEnum.Water],
       weightkg: 3.1,
-      aliases: ['fione']
+      aliases: ['fione'],
+      mythical: true,
+      classification: 'Sea Drifter Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/phione.mp3',
+      respelling: 'fee-OWN-ay',
+      ipa: '/fiːˈoʊneɪ/'
     }
   ],
   [
@@ -2757,7 +3354,12 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'manaphy',
       types: [TypesEnum.Water],
       weightkg: 1.4,
-      aliases: ['manafi']
+      aliases: ['manafi'],
+      mythical: true,
+      classification: 'Seafaring Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/manaphy.mp3',
+      respelling: 'man-A-phee',
+      ipa: '/mænˈæfiː/'
     }
   ],
   [
@@ -2778,7 +3380,12 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'darkrai',
       types: [TypesEnum.Dark],
       weightkg: 50.5,
-      aliases: ['daakurai']
+      aliases: ['daakurai'],
+      mythical: true,
+      classification: 'Pitch-Black Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/darkrai.mp3',
+      respelling: 'DARK-rye',
+      ipa: '/ˈdɑːrkraɪ/'
     }
   ],
   [
@@ -2801,14 +3408,19 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'shaymin',
       types: [TypesEnum.Grass],
       weightkg: 2.1,
-      aliases: ['shayminl', 'shayminland', 'sheimi']
+      aliases: ['shayminl', 'shayminland', 'sheimi'],
+      mythical: true,
+      classification: 'Gratitude Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/shaymin.mp3',
+      respelling: 'SHAY-min',
+      ipa: '/ˈʃeɪmɪn/'
     }
   ],
   [
     'shayminsky',
     {
       abilities: { first: 'serenegrace' },
-      baseSpecies: 'Shaymin',
+      baseSpecies: 'shaymin',
       baseStats: { hp: 100, atk: 103, def: 75, spa: 120, spd: 75, spe: 127 },
       catchRate: { base: 45, percentageWithOrdinaryPokeballAtFullHealth: '11.9%' },
       color: 'Green',
@@ -2826,7 +3438,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'shaymin-sky',
       types: [TypesEnum.Grass, TypesEnum.Flying],
       weightkg: 5.2,
-      aliases: ['shaymins', 'skymin']
+      aliases: ['shaymins', 'skymin'],
+      mythical: true,
+      cry: 'https://play.pokemonshowdown.com/audio/cries/shaymin-sky.mp3',
+      respelling: 'SHAY-min',
+      ipa: '/ˈʃeɪmɪn/'
     }
   ],
   [
@@ -2868,14 +3484,19 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'arceus',
       types: [TypesEnum.Normal],
       weightkg: 320,
-      aliases: ['arc', 'arceusnormal', 'aruseusu', 'ekiller']
+      aliases: ['arc', 'arceusnormal', 'aruseusu', 'ekiller'],
+      mythical: true,
+      classification: 'Alpha Pokémon',
+      cry: 'https://play.pokemonshowdown.com/audio/cries/arceus.mp3',
+      respelling: 'AR-key-us',
+      ipa: '/ˈɑːrkiːʌs/'
     }
   ],
   [
     'arceusbug',
     {
       abilities: { first: 'multitype' },
-      baseSpecies: 'Arceus',
+      baseSpecies: 'arceus',
       baseStats: { hp: 120, atk: 120, def: 120, spa: 120, spd: 120, spe: 120 },
       catchRate: { base: 3, percentageWithOrdinaryPokeballAtFullHealth: '1.6%' },
       color: 'Gray',
@@ -2911,14 +3532,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'arceus-bug',
       types: [TypesEnum.Bug],
       weightkg: 320,
-      aliases: ['arcbug', 'bugceus']
+      aliases: ['arcbug', 'bugceus'],
+      mythical: true,
+      cry: 'https://play.pokemonshowdown.com/audio/cries/arceus.mp3',
+      respelling: 'AR-key-us',
+      ipa: '/ˈɑːrkiːʌs/'
     }
   ],
   [
     'arceusdark',
     {
       abilities: { first: 'multitype' },
-      baseSpecies: 'Arceus',
+      baseSpecies: 'arceus',
       baseStats: { hp: 120, atk: 120, def: 120, spa: 120, spd: 120, spe: 120 },
       catchRate: { base: 3, percentageWithOrdinaryPokeballAtFullHealth: '1.6%' },
       color: 'Gray',
@@ -2954,14 +3579,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'arceus-dark',
       types: [TypesEnum.Dark],
       weightkg: 320,
-      aliases: ['arcdark', 'darkceus']
+      aliases: ['arcdark', 'darkceus'],
+      mythical: true,
+      cry: 'https://play.pokemonshowdown.com/audio/cries/arceus.mp3',
+      respelling: 'AR-key-us',
+      ipa: '/ˈɑːrkiːʌs/'
     }
   ],
   [
     'arceusdragon',
     {
       abilities: { first: 'multitype' },
-      baseSpecies: 'Arceus',
+      baseSpecies: 'arceus',
       baseStats: { hp: 120, atk: 120, def: 120, spa: 120, spd: 120, spe: 120 },
       catchRate: { base: 3, percentageWithOrdinaryPokeballAtFullHealth: '1.6%' },
       color: 'Gray',
@@ -2997,14 +3626,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'arceus-dragon',
       types: [TypesEnum.Dragon],
       weightkg: 320,
-      aliases: ['arcdragon', 'dragonceus']
+      aliases: ['arcdragon', 'dragonceus'],
+      mythical: true,
+      cry: 'https://play.pokemonshowdown.com/audio/cries/arceus.mp3',
+      respelling: 'AR-key-us',
+      ipa: '/ˈɑːrkiːʌs/'
     }
   ],
   [
     'arceuselectric',
     {
       abilities: { first: 'multitype' },
-      baseSpecies: 'Arceus',
+      baseSpecies: 'arceus',
       baseStats: { hp: 120, atk: 120, def: 120, spa: 120, spd: 120, spe: 120 },
       catchRate: { base: 3, percentageWithOrdinaryPokeballAtFullHealth: '1.6%' },
       color: 'Gray',
@@ -3040,14 +3673,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'arceus-electric',
       types: [TypesEnum.Electric],
       weightkg: 320,
-      aliases: ['arcelectric', 'eleceus']
+      aliases: ['arcelectric', 'eleceus'],
+      mythical: true,
+      cry: 'https://play.pokemonshowdown.com/audio/cries/arceus.mp3',
+      respelling: 'AR-key-us',
+      ipa: '/ˈɑːrkiːʌs/'
     }
   ],
   [
     'arceusfairy',
     {
       abilities: { first: 'multitype' },
-      baseSpecies: 'Arceus',
+      baseSpecies: 'arceus',
       baseStats: { hp: 120, atk: 120, def: 120, spa: 120, spd: 120, spe: 120 },
       catchRate: { base: 3, percentageWithOrdinaryPokeballAtFullHealth: '1.6%' },
       color: 'Gray',
@@ -3083,14 +3720,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'arceus-fairy',
       types: [TypesEnum.Fairy],
       weightkg: 320,
-      aliases: ['arcfairy', 'fairyceus']
+      aliases: ['arcfairy', 'fairyceus'],
+      mythical: true,
+      cry: 'https://play.pokemonshowdown.com/audio/cries/arceus.mp3',
+      respelling: 'AR-key-us',
+      ipa: '/ˈɑːrkiːʌs/'
     }
   ],
   [
     'arceusfighting',
     {
       abilities: { first: 'multitype' },
-      baseSpecies: 'Arceus',
+      baseSpecies: 'arceus',
       baseStats: { hp: 120, atk: 120, def: 120, spa: 120, spd: 120, spe: 120 },
       catchRate: { base: 3, percentageWithOrdinaryPokeballAtFullHealth: '1.6%' },
       color: 'Gray',
@@ -3126,14 +3767,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'arceus-fighting',
       types: [TypesEnum.Fighting],
       weightkg: 320,
-      aliases: ['arcfighting', 'fightceus']
+      aliases: ['arcfighting', 'fightceus'],
+      mythical: true,
+      cry: 'https://play.pokemonshowdown.com/audio/cries/arceus.mp3',
+      respelling: 'AR-key-us',
+      ipa: '/ˈɑːrkiːʌs/'
     }
   ],
   [
     'arceusfire',
     {
       abilities: { first: 'multitype' },
-      baseSpecies: 'Arceus',
+      baseSpecies: 'arceus',
       baseStats: { hp: 120, atk: 120, def: 120, spa: 120, spd: 120, spe: 120 },
       catchRate: { base: 3, percentageWithOrdinaryPokeballAtFullHealth: '1.6%' },
       color: 'Gray',
@@ -3169,14 +3814,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'arceus-fire',
       types: [TypesEnum.Fire],
       weightkg: 320,
-      aliases: ['arcfire', 'fireceus']
+      aliases: ['arcfire', 'fireceus'],
+      mythical: true,
+      cry: 'https://play.pokemonshowdown.com/audio/cries/arceus.mp3',
+      respelling: 'AR-key-us',
+      ipa: '/ˈɑːrkiːʌs/'
     }
   ],
   [
     'arceusflying',
     {
       abilities: { first: 'multitype' },
-      baseSpecies: 'Arceus',
+      baseSpecies: 'arceus',
       baseStats: { hp: 120, atk: 120, def: 120, spa: 120, spd: 120, spe: 120 },
       catchRate: { base: 3, percentageWithOrdinaryPokeballAtFullHealth: '1.6%' },
       color: 'Gray',
@@ -3212,14 +3861,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'arceus-flying',
       types: [TypesEnum.Flying],
       weightkg: 320,
-      aliases: ['arcflying', 'flyceus']
+      aliases: ['arcflying', 'flyceus'],
+      mythical: true,
+      cry: 'https://play.pokemonshowdown.com/audio/cries/arceus.mp3',
+      respelling: 'AR-key-us',
+      ipa: '/ˈɑːrkiːʌs/'
     }
   ],
   [
     'arceusghost',
     {
       abilities: { first: 'multitype' },
-      baseSpecies: 'Arceus',
+      baseSpecies: 'arceus',
       baseStats: { hp: 120, atk: 120, def: 120, spa: 120, spd: 120, spe: 120 },
       catchRate: { base: 3, percentageWithOrdinaryPokeballAtFullHealth: '1.6%' },
       color: 'Gray',
@@ -3255,14 +3908,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'arceus-ghost',
       types: [TypesEnum.Ghost],
       weightkg: 320,
-      aliases: ['arcghost', 'ghostceus']
+      aliases: ['arcghost', 'ghostceus'],
+      mythical: true,
+      cry: 'https://play.pokemonshowdown.com/audio/cries/arceus.mp3',
+      respelling: 'AR-key-us',
+      ipa: '/ˈɑːrkiːʌs/'
     }
   ],
   [
     'arceusgrass',
     {
       abilities: { first: 'multitype' },
-      baseSpecies: 'Arceus',
+      baseSpecies: 'arceus',
       baseStats: { hp: 120, atk: 120, def: 120, spa: 120, spd: 120, spe: 120 },
       catchRate: { base: 3, percentageWithOrdinaryPokeballAtFullHealth: '1.6%' },
       color: 'Gray',
@@ -3298,14 +3955,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'arceus-grass',
       types: [TypesEnum.Grass],
       weightkg: 320,
-      aliases: ['arcgrass', 'grassceus']
+      aliases: ['arcgrass', 'grassceus'],
+      mythical: true,
+      cry: 'https://play.pokemonshowdown.com/audio/cries/arceus.mp3',
+      respelling: 'AR-key-us',
+      ipa: '/ˈɑːrkiːʌs/'
     }
   ],
   [
     'arceusground',
     {
       abilities: { first: 'multitype' },
-      baseSpecies: 'Arceus',
+      baseSpecies: 'arceus',
       baseStats: { hp: 120, atk: 120, def: 120, spa: 120, spd: 120, spe: 120 },
       catchRate: { base: 3, percentageWithOrdinaryPokeballAtFullHealth: '1.6%' },
       color: 'Gray',
@@ -3341,14 +4002,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'arceus-ground',
       types: [TypesEnum.Ground],
       weightkg: 320,
-      aliases: ['arcground', 'groundceus']
+      aliases: ['arcground', 'groundceus'],
+      mythical: true,
+      cry: 'https://play.pokemonshowdown.com/audio/cries/arceus.mp3',
+      respelling: 'AR-key-us',
+      ipa: '/ˈɑːrkiːʌs/'
     }
   ],
   [
     'arceusice',
     {
       abilities: { first: 'multitype' },
-      baseSpecies: 'Arceus',
+      baseSpecies: 'arceus',
       baseStats: { hp: 120, atk: 120, def: 120, spa: 120, spd: 120, spe: 120 },
       catchRate: { base: 3, percentageWithOrdinaryPokeballAtFullHealth: '1.6%' },
       color: 'Gray',
@@ -3384,14 +4049,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'arceus-ice',
       types: [TypesEnum.Ice],
       weightkg: 320,
-      aliases: ['arcice', 'iceceus']
+      aliases: ['arcice', 'iceceus'],
+      mythical: true,
+      cry: 'https://play.pokemonshowdown.com/audio/cries/arceus.mp3',
+      respelling: 'AR-key-us',
+      ipa: '/ˈɑːrkiːʌs/'
     }
   ],
   [
     'arceuspoison',
     {
       abilities: { first: 'multitype' },
-      baseSpecies: 'Arceus',
+      baseSpecies: 'arceus',
       baseStats: { hp: 120, atk: 120, def: 120, spa: 120, spd: 120, spe: 120 },
       catchRate: { base: 3, percentageWithOrdinaryPokeballAtFullHealth: '1.6%' },
       color: 'Gray',
@@ -3427,14 +4096,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'arceus-poison',
       types: [TypesEnum.Poison],
       weightkg: 320,
-      aliases: ['arcpoison', 'poisonceus']
+      aliases: ['arcpoison', 'poisonceus'],
+      mythical: true,
+      cry: 'https://play.pokemonshowdown.com/audio/cries/arceus.mp3',
+      respelling: 'AR-key-us',
+      ipa: '/ˈɑːrkiːʌs/'
     }
   ],
   [
     'arceuspsychic',
     {
       abilities: { first: 'multitype' },
-      baseSpecies: 'Arceus',
+      baseSpecies: 'arceus',
       baseStats: { hp: 120, atk: 120, def: 120, spa: 120, spd: 120, spe: 120 },
       catchRate: { base: 3, percentageWithOrdinaryPokeballAtFullHealth: '1.6%' },
       color: 'Gray',
@@ -3470,14 +4143,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'arceus-psychic',
       types: [TypesEnum.Psychic],
       weightkg: 320,
-      aliases: ['arcpsychic', 'psyceus']
+      aliases: ['arcpsychic', 'psyceus'],
+      mythical: true,
+      cry: 'https://play.pokemonshowdown.com/audio/cries/arceus.mp3',
+      respelling: 'AR-key-us',
+      ipa: '/ˈɑːrkiːʌs/'
     }
   ],
   [
     'arceusrock',
     {
       abilities: { first: 'multitype' },
-      baseSpecies: 'Arceus',
+      baseSpecies: 'arceus',
       baseStats: { hp: 120, atk: 120, def: 120, spa: 120, spd: 120, spe: 120 },
       catchRate: { base: 3, percentageWithOrdinaryPokeballAtFullHealth: '1.6%' },
       color: 'Gray',
@@ -3513,14 +4190,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'arceus-rock',
       types: [TypesEnum.Rock],
       weightkg: 320,
-      aliases: ['arcrock', 'rockceus']
+      aliases: ['arcrock', 'rockceus'],
+      mythical: true,
+      cry: 'https://play.pokemonshowdown.com/audio/cries/arceus.mp3',
+      respelling: 'AR-key-us',
+      ipa: '/ˈɑːrkiːʌs/'
     }
   ],
   [
     'arceussteel',
     {
       abilities: { first: 'multitype' },
-      baseSpecies: 'Arceus',
+      baseSpecies: 'arceus',
       baseStats: { hp: 120, atk: 120, def: 120, spa: 120, spd: 120, spe: 120 },
       catchRate: { base: 3, percentageWithOrdinaryPokeballAtFullHealth: '1.6%' },
       color: 'Gray',
@@ -3556,14 +4237,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'arceus-steel',
       types: [TypesEnum.Steel],
       weightkg: 320,
-      aliases: ['arcsteel', 'steelceus']
+      aliases: ['arcsteel', 'steelceus'],
+      mythical: true,
+      cry: 'https://play.pokemonshowdown.com/audio/cries/arceus.mp3',
+      respelling: 'AR-key-us',
+      ipa: '/ˈɑːrkiːʌs/'
     }
   ],
   [
     'arceuswater',
     {
       abilities: { first: 'multitype' },
-      baseSpecies: 'Arceus',
+      baseSpecies: 'arceus',
       baseStats: { hp: 120, atk: 120, def: 120, spa: 120, spd: 120, spe: 120 },
       catchRate: { base: 3, percentageWithOrdinaryPokeballAtFullHealth: '1.6%' },
       color: 'Gray',
@@ -3599,14 +4284,18 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'arceus-water',
       types: [TypesEnum.Water],
       weightkg: 320,
-      aliases: ['arcwater', 'waterceus']
+      aliases: ['arcwater', 'waterceus'],
+      mythical: true,
+      cry: 'https://play.pokemonshowdown.com/audio/cries/arceus.mp3',
+      respelling: 'AR-key-us',
+      ipa: '/ˈɑːrkiːʌs/'
     }
   ],
   [
     'arceuslegend',
     {
       abilities: { first: 'multitype' },
-      baseSpecies: 'Arceus',
+      baseSpecies: 'arceus',
       baseStats: { hp: 120, atk: 120, def: 120, spa: 120, spd: 120, spe: 120 },
       catchRate: { base: 3, percentageWithOrdinaryPokeballAtFullHealth: '1.6%' },
       color: 'White',
@@ -3643,7 +4332,11 @@ const entries: [string, PokemonTypes.DexEntry][] = [
       species: 'arceus-legend',
       types: [TypesEnum.Normal],
       weightkg: 320,
-      aliases: ['arceuslegendary', 'plarceus', 'god']
+      aliases: ['arceuslegendary', 'plarceus', 'god'],
+      mythical: true,
+      cry: 'https://play.pokemonshowdown.com/audio/cries/arceus.mp3',
+      respelling: 'AR-key-us',
+      ipa: '/ˈɑːrkiːʌs/'
     }
   ]
 ];

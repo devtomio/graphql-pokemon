@@ -5,59 +5,64 @@ on:
     branches:
       - main
     paths:
-      - 'src/**'
-      - '.github/workflows/continuous-deployment.yml'
-      - 'README.md'
-      - 'Dockerfile'
+      - src/**
+      - .github/workflows/continuous-deployment.yml
+      - README.md
+      - Dockerfile
   workflow_dispatch:
     inputs:
       skip-publish:
-        description: 'Whether to skip publishing typings to NPM'
+        description: Whether to skip publishing typings to NPM
         required: false
+        type: boolean
 
 jobs:
   Publish:
     name: Publish image to container registries
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[skip docker]')"
+    if: ${{ ! contains(github.event.head_commit.message, '[skip docker]') }}
     steps:
       - name: Checkout Project
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        uses: actions/checkout@v4
       - name: Setup Docker Buildx
-        uses: docker/setup-buildx-action@dc7b9719a96d48369863986a06765841d7ea23f6 # tag=v2.0.0
+        uses: docker/setup-buildx-action@v3.8.0
       - name: Login to DockerHub
-        uses: docker/login-action@49ed152c8eca782a232dede0303416e8f356c37b # tag=v2.0.0
+        uses: docker/login-action@v3.3.0
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@49ed152c8eca782a232dede0303416e8f356c37b # tag=v2.0.0
+        uses: docker/login-action@v3.3.0
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and push Docker image
-        uses: docker/build-push-action@c84f38281176d4c9cdb1626ffafcd6b3911b5d94 # tag=v3.1.1
+        uses: docker/build-push-action@v6.13.0
         with:
           push: true
           context: .
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          platforms: |
+            linux/amd64
+            linux/arm64
           tags: |
             favware/graphql-pokemon:latest
             ghcr.io/favware/graphql-pokemon:latest
       - name: Update repo description
-        uses: peter-evans/dockerhub-description@836d7e6aa8f6f32dce26f5a1dd46d3dc24997eae # tag=v3.0.0
+        uses: peter-evans/dockerhub-description@v4
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: favware/graphql-pokemon
+          enable-url-completion: true
           short-description: Extensive Pokemon GraphQL API
 
-  GenerateTypings:
-    name: Generate TypeScript, and SDL type information
+  ValidateAllData:
+    name: Validate all data
     runs-on: ubuntu-latest
-    if: >-
-      !(contains(github.event.head_commit.message, '[skip publish]')
-      ||github.event.inputs.skip-publish == true)
+    if: ${{ ! contains(github.event.head_commit.message, '[skip docker]') }}
     needs: Publish
     services:
       pokedex:
@@ -72,114 +77,148 @@ jobs:
           - 4000:4000
     steps:
       - name: Checkout Project
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install Dependencies
+        working-directory: ./scripts/manual-tests
+        run: pip install -r requirements.txt
+      - name: Run get-all-data
+        working-directory: ./scripts/manual-tests
+        run: python get-all-data.py
+
+  UpdateOnServer:
+    name: Update running container on server
+    runs-on: ubuntu-latest
+    if: ${{ ! contains(github.event.head_commit.message, '[skip docker]') }}
+    needs: ValidateAllData
+    steps:
+      - name: Update container on server
+        uses: favware/ssh-remote-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.SSH_KEY }}
+          passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
+          username: ${{ secrets.SSH_USERNAME }}
+          command: ${{ secrets.SSH_COMMAND }}
+          silent: true
+
+  GeneratePackage:
+    name: Generate JavaScript companion library
+    runs-on: ubuntu-latest
+    if: ${{ ! contains(github.event.head_commit.message, '[skip publish]') || github.event.inputs.skip-publish == true }}
+    needs: ValidateAllData
+    services:
+      pokedex:
+        image: ghcr.io/favware/graphql-pokemon:latest
+        options: >-
+          --health-cmd "nc -z localhost 4000"
+          --health-interval 10s
+          --health-timeout 10s
+          --health-retries 6
+          --health-start-period 5s
+        ports:
+          - 4000:4000
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v4
       - name: Add problem matchers
         run: echo "::add-matcher::.github/problemMatchers/tsc.json"
-      - name: Use Node.js v18
-        uses: actions/setup-node@2fddd8803e2f5c9604345a0b591c3020ee971a93 # tag=v3
+      - name: Use Node.js v20
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           cache: yarn
           registry-url: https://registry.yarnpkg.com/
       - name: Install Dependencies
         run: yarn --immutable
-      - name: Generate GraphQL Schema code
-        run: yarn codegen
+      - name: Generate library code
+        run: yarn package
       - name: Upload typescript bundle to artifacts
-        uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8 # tag=v3
+        uses: actions/upload-artifact@v4
         with:
-          name: typescript_bundle
+          name: package_bundle
           path: dist/
           if-no-files-found: error
 
-  GitHubCreateTag:
-    name: Create tag on GitHub
+  GitHubMakeRelease:
+    name: Make release on GitHub
     runs-on: ubuntu-latest
-    if: >-
-      !(contains(github.event.head_commit.message, '[skip publish]')
-      ||github.event.inputs.skip-publish == true)
-    needs: GenerateTypings
+    if: ${{ ! contains(github.event.head_commit.message, '[skip publish]') || github.event.inputs.skip-publish == true }}
+    needs: GeneratePackage
     steps:
       - name: Checkout Project
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Use Node.js v18
-        uses: actions/setup-node@2fddd8803e2f5c9604345a0b591c3020ee971a93 # tag=v3
+          token: ${{ secrets.BOT_TOKEN }}
+      - name: Use Node.js v20
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           cache: yarn
           registry-url: https://registry.yarnpkg.com/
       - name: Install Dependencies
         run: yarn --immutable
       - name: Configure Git
         run: |
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-      - name: Install Git Cliff
-        if: "!contains(github.event.head_commit.message, '[skip bump]')"
+          git remote set-url origin "https://${GITHUB_TOKEN}:x-oauth-basic@github.com/${GITHUB_REPOSITORY}.git"
+          git config --local user.email "${GITHUB_EMAIL}"
+          git config --local user.name "${GITHUB_USER}"
+        env:
+          GITHUB_USER: github-actions[bot]
+          GITHUB_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Bump semver
+        if: ${{ ! contains(github.event.head_commit.message, '[skip bump]') }}
+        run: yarn bump
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          curl -o ./git-cliff.tar.gz -sL \
-              $(curl -sL \
-                  -H "Authorization: bearer ${GITHUB_TOKEN}" \
-                  -X POST \
-                  --data '{"query":"query { repository(owner: \"orhun\", name: \"git-cliff\") { releases(last: 1) { nodes { releaseAssets(first: 20) { nodes { downloadUrl name }}}}}}"}' "https://api.github.com/graphql" |
-              jq -cr '.data.repository.releases.nodes[0].releaseAssets.nodes[]? | select(.name | contains("x86_64-unknown-linux-gnu.tar.gz")).downloadUrl')
-          tar -xzf ./git-cliff.tar.gz --wildcards "*git-cliff"
-          mkdir -p ${HOME}/.local/bin
-          mv git-cliff-*/git-cliff ${HOME}/.local/bin/git-cliff
-          rm -r git-cliff-*
-          echo "${HOME}/.local/bin" >> $GITHUB_PATH
-      - name: Bump semver
-        if: "!contains(github.event.head_commit.message, '[skip bump]')"
-        run: yarn bump --no-skip-tag --no-skip-changelog
-        env:
-          CI: false
       - name: Store bumped package.json
-        uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8 # tag=v3
+        uses: actions/upload-artifact@v4
         with:
-          name: package_bundle
+          name: package_json
           path: package.json
           if-no-files-found: error
       - name: Store bumped changelog.md
-        uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8 # tag=v3
+        uses: actions/upload-artifact@v4
         with:
-          name: changelog_bundle
+          name: changelog_md
           path: CHANGELOG.md
           if-no-files-found: error
       - name: Push changes
-        if: "!contains(github.event.head_commit.message, '[skip bump]')"
+        if: ${{ ! contains(github.event.head_commit.message, '[skip bump]') }}
         run: git push origin main && git push --tags origin main
 
   NPMPublish:
     name: Publishing release to NPM
     runs-on: ubuntu-latest
-    if: >-
-      !(contains(github.event.head_commit.message, '[skip publish]')
-      ||github.event.inputs.skip-publish == true)
-    needs: GitHubCreateTag
+    if: ${{ ! contains(github.event.head_commit.message, '[skip publish]') || github.event.inputs.skip-publish == true }}
+    needs: GitHubMakeRelease
     steps:
       - name: Checkout Project
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        uses: actions/checkout@v4
       - name: Download generated typings artifact
-        uses: actions/download-artifact@fb598a63ae348fa914e94cd0ff38f362e927b741 # tag=v3
-        with:
-          name: typescript_bundle
-          path: dist/
-      - name: Download stored package.json
-        uses: actions/download-artifact@fb598a63ae348fa914e94cd0ff38f362e927b741 # tag=v3
+        uses: actions/download-artifact@v4
         with:
           name: package_bundle
+          path: dist/
+      - name: Download stored package.json
+        uses: actions/download-artifact@v4
+        with:
+          name: package_json
       - name: Download stored changelog.md
-        uses: actions/download-artifact@fb598a63ae348fa914e94cd0ff38f362e927b741 # tag=v3
+        uses: actions/download-artifact@v4
         with:
-          name: changelog_bundle
+          name: changelog_md
       - name: Setup Node for publishing to NPM
-        uses: actions/setup-node@2fddd8803e2f5c9604345a0b591c3020ee971a93 # tag=v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           cache: yarn
           registry-url: https://registry.yarnpkg.com/
       - name: Install Dependencies
@@ -195,33 +234,31 @@ jobs:
   Github-Package-Registry-Node:
     name: Publishing release to Github Package Registry
     runs-on: ubuntu-latest
-    if: >-
-      !(contains(github.event.head_commit.message, '[skip publish]')
-      ||github.event.inputs.skip-publish == true)
-    needs: GitHubCreateTag
+    if: ${{ ! contains(github.event.head_commit.message, '[skip publish]') || github.event.inputs.skip-publish == true }}
+    needs: GitHubMakeRelease
     steps:
       - name: Checkout Project
-        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        uses: actions/checkout@v4
       - name: Setup Node for publishing to Github
-        uses: actions/setup-node@2fddd8803e2f5c9604345a0b591c3020ee971a93 # tag=v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           registry-url: 'https://npm.pkg.github.com'
           scope: '@favware'
           cache: yarn
       - name: Download generated typings artifact
-        uses: actions/download-artifact@fb598a63ae348fa914e94cd0ff38f362e927b741 # tag=v3
-        with:
-          name: typescript_bundle
-          path: dist/
-      - name: Download stored package.json
-        uses: actions/download-artifact@fb598a63ae348fa914e94cd0ff38f362e927b741 # tag=v3
+        uses: actions/download-artifact@v4
         with:
           name: package_bundle
-      - name: Download stored changelog.md
-        uses: actions/download-artifact@fb598a63ae348fa914e94cd0ff38f362e927b741 # tag=v3
+          path: dist/
+      - name: Download stored package.json
+        uses: actions/download-artifact@v4
         with:
-          name: changelog_bundle
+          name: package_json
+      - name: Download stored changelog.md
+        uses: actions/download-artifact@v4
+        with:
+          name: changelog_md
       - name: Install Dependencies
         run: yarn --immutable
       - name: Publish to Github

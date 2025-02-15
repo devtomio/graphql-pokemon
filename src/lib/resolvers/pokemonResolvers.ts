@@ -1,10 +1,10 @@
 import { pokedex } from '#assets/pokedex';
 import { mapPokemonDataToPokemonGraphQL } from '#mappers/pokemonMapper';
-import type { Pokemon } from '#types';
+import type { Pokemon } from '#types/graphql-mapped-types';
+import type { NonNullish } from '#types/utility-types';
 import { FuzzySearch } from '#utils/FuzzySearch';
 import type { GraphQLSet } from '#utils/GraphQLSet';
-import { preParseInput } from '#utils/util';
-import type { NonNullish } from '#utils/utilTypes';
+import { preParseInput } from '#utils/utils';
 import { validateGetAllPokemonArgs, type GetAllPokemonArgs } from '#validations/pokemonArgs/getAllPokemonArgs';
 import { validateGetFuzzyPokemonArgs, type GetFuzzyPokemonArgs } from '#validations/pokemonArgs/getFuzzyPokemonArgs';
 import { validateGetPokemonArgs, type GetPokemonArgs } from '#validations/pokemonArgs/getPokemonArgs';
@@ -79,7 +79,7 @@ export function getPokemon(args: NonNullish<GetPokemonArgs>, requestedFields: Gr
  *
  * For every Pokémon all the data on each requested field is returned.
  *
- * **_NOTE:_ To skip all CAP Pokémon, PokéStar Pokémon, and Missingno provide an `offset` of 86**
+ * **_NOTE:_ To skip all CAP Pokémon, PokéStar Pokémon, and Missingno provide an `offset` of 89**
  *
  * You can provide `take` to limit the amount of Pokémon to return (default: 1), set the offset of where to start with `offset`, and reverse the entire array with `reverse`.
  *
@@ -220,6 +220,13 @@ export function getFuzzyPokemon(args: NonNullish<GetFuzzyPokemonArgs>, requested
  * // Transforms into
  * 'slowbro-galar'
  * ```
+ * @example
+ * ```ts
+ * // Given
+ * 'paldean tauros'
+ * // Transforms into
+ * 'tauros-paldea'
+ * ```
  */
 function parseFormeIdentifiers(pokemon: string) {
   switch (pokemon.split(' ')[0]) {
@@ -237,6 +244,10 @@ function parseFormeIdentifiers(pokemon: string) {
     case 'galar':
     case 'galarian':
       pokemon = `${pokemon.substring(pokemon.split(' ')[0].length + 1)}-galar`;
+      break;
+    case 'paldea':
+    case 'paldean':
+      pokemon = `${pokemon.substring(pokemon.split(' ')[0].length + 1)}-paldea`;
       break;
     default:
       break;
@@ -262,6 +273,12 @@ function parseFormeIdentifiers(pokemon: string) {
     pokemon = `${pokemon.substring(8, pokemon.length)}galar`;
   } else if (pokemon.startsWith('galar')) {
     pokemon = `${pokemon.substring(5, pokemon.length)}galar`;
+  }
+
+  if (pokemon.startsWith('paldean')) {
+    pokemon = `${pokemon.substring(7, pokemon.length)}paldea`;
+  } else if (pokemon.startsWith('paldea')) {
+    pokemon = `${pokemon.substring(6, pokemon.length)}paldea`;
   }
 
   return pokemon;
